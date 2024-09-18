@@ -7,13 +7,12 @@ import {Suspense} from 'react';
 import {Await, useLoaderData} from '@remix-run/react';
 import {getSeoMeta} from '@shopify/hydrogen';
 
-import {Hero} from '~/components/Hero';
 import {FeaturedCollections} from '~/components/FeaturedCollections';
 import {ProductSwimlane} from '~/components/ProductSwimlane';
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
-import {getHeroPlaceholder} from '~/lib/placeholders';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
+import BackgroundVideo from '~/components/BackgroundVideo';
 
 export const headers = routeHeaders;
 
@@ -39,10 +38,6 @@ export async function loader(args: LoaderFunctionArgs) {
   return defer({...deferredData, ...criticalData});
 }
 
-/**
- * Load data necessary for rendering content above the fold. This is the critical data
- * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
- */
 async function loadCriticalData({context}: LoaderFunctionArgs) {
   const [{shop, hero}] = await Promise.all([
     context.storefront.query(HOMEPAGE_SEO_QUERY, {
@@ -58,37 +53,12 @@ async function loadCriticalData({context}: LoaderFunctionArgs) {
   };
 }
 
-/**
- * Load data for rendering content below the fold. This data is deferred and will be
- * fetched after the initial page load. If it's unavailable, the page should still 200.
- * Make sure to not throw any errors here, as it will cause the page to 500.
- */
 function loadDeferredData({context}: LoaderFunctionArgs) {
   const {language, country} = context.storefront.i18n;
 
   const featuredProducts = context.storefront
     .query(HOMEPAGE_FEATURED_PRODUCTS_QUERY, {
       variables: {
-        /**
-         * Country and language properties are automatically injected
-         * into all queries. Passing them is unnecessary unless you
-         * want to override them from the following default:
-         */
-        country,
-        language,
-      },
-    })
-    .catch((error) => {
-      // Log query errors, but don't throw them so the page can still render
-      // eslint-disable-next-line no-console
-      console.error(error);
-      return null;
-    });
-
-  const secondaryHero = context.storefront
-    .query(COLLECTION_HERO_QUERY, {
-      variables: {
-        handle: 'backcountry',
         country,
         language,
       },
@@ -114,26 +84,9 @@ function loadDeferredData({context}: LoaderFunctionArgs) {
       return null;
     });
 
-  const tertiaryHero = context.storefront
-    .query(COLLECTION_HERO_QUERY, {
-      variables: {
-        handle: 'winter-2022',
-        country,
-        language,
-      },
-    })
-    .catch((error) => {
-      // Log query errors, but don't throw them so the page can still render
-      // eslint-disable-next-line no-console
-      console.error(error);
-      return null;
-    });
-
   return {
     featuredProducts,
-    secondaryHero,
     featuredCollections,
-    tertiaryHero,
   };
 }
 
@@ -142,23 +95,12 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
 };
 
 export default function Homepage() {
-  const {
-    primaryHero,
-    secondaryHero,
-    tertiaryHero,
-    featuredCollections,
-    featuredProducts,
-  } = useLoaderData<typeof loader>();
-
-  // TODO: skeletons vs placeholders
-  const skeletons = getHeroPlaceholder([{}, {}, {}]);
+  const {featuredCollections, featuredProducts} =
+    useLoaderData<typeof loader>();
 
   return (
     <>
-      {primaryHero && (
-        <Hero {...primaryHero} height="full" top loading="eager" />
-      )}
-
+      <BackgroundVideo />
       {featuredProducts && (
         <Suspense>
           <Await resolve={featuredProducts}>
@@ -181,20 +123,6 @@ export default function Homepage() {
           </Await>
         </Suspense>
       )}
-
-      {secondaryHero && (
-        <Suspense fallback={<Hero {...skeletons[1]} />}>
-          <Await resolve={secondaryHero}>
-            {(response) => {
-              if (!response || !response?.hero) {
-                return <></>;
-              }
-              return <Hero {...response.hero} />;
-            }}
-          </Await>
-        </Suspense>
-      )}
-
       {featuredCollections && (
         <Suspense>
           <Await resolve={featuredCollections}>
@@ -212,19 +140,6 @@ export default function Homepage() {
                   title="Collections"
                 />
               );
-            }}
-          </Await>
-        </Suspense>
-      )}
-
-      {tertiaryHero && (
-        <Suspense fallback={<Hero {...skeletons[2]} />}>
-          <Await resolve={tertiaryHero}>
-            {(response) => {
-              if (!response || !response?.hero) {
-                return <></>;
-              }
-              return <Hero {...response.hero} />;
             }}
           </Await>
         </Suspense>
@@ -271,16 +186,6 @@ const HOMEPAGE_SEO_QUERY = `#graphql
     shop {
       name
       description
-    }
-  }
-  ${COLLECTION_CONTENT_FRAGMENT}
-` as const;
-
-const COLLECTION_HERO_QUERY = `#graphql
-  query heroCollectionContent($handle: String, $country: CountryCode, $language: LanguageCode)
-  @inContext(country: $country, language: $language) {
-    hero: collection(handle: $handle) {
-      ...CollectionContent
     }
   }
   ${COLLECTION_CONTENT_FRAGMENT}

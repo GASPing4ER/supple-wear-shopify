@@ -270,9 +270,6 @@ function DesktopHeader({
       } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`}
     >
       <div className="flex gap-12">
-        <Link className="font-bold" to="/" prefetch="intent">
-          {title}
-        </Link>
         <nav className="flex gap-8">
           {/* Top level menu items */}
           {(menu?.items || []).map((item) => (
@@ -290,6 +287,9 @@ function DesktopHeader({
           ))}
         </nav>
       </div>
+      <Link className="font-bold" to="/" prefetch="intent">
+        {title}
+      </Link>
       <div className="flex items-center gap-1">
         <Form
           method="get"
