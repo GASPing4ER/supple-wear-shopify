@@ -72,8 +72,7 @@ export default function Article() {
         {image && (
           <Image
             data={image}
-            className="w-full mx-auto mt-8 md:mt-16 max-w-7xl"
-            sizes="90vw"
+            className="w-full mx-auto mt-8 max-w-7xl max-h-[50vh] object-contain"
             loading="eager"
           />
         )}

@@ -13,6 +13,7 @@ import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
 import BackgroundVideo from '~/components/BackgroundVideo';
+import {AboutSection} from '~/components/AboutSection';
 
 export const headers = routeHeaders;
 
@@ -39,16 +40,25 @@ export async function loader(args: LoaderFunctionArgs) {
 }
 
 async function loadCriticalData({context}: LoaderFunctionArgs) {
-  const [{shop, hero}] = await Promise.all([
+  const {language, country} = context.storefront.i18n;
+
+  const [{shop, hero}, aboutRoute] = await Promise.all([
     context.storefront.query(HOMEPAGE_SEO_QUERY, {
       variables: {handle: 'freestyle'},
     }),
     // Add other queries here, so that they are loaded in parallel
+    context.storefront.query(ABOUT_SECTION_QUERY, {
+      variables: {
+        country,
+        language,
+      },
+    }),
   ]);
 
   return {
     shop,
     primaryHero: hero,
+    aboutRoute: aboutRoute.route,
     seo: seoPayload.home(),
   };
 }
@@ -95,7 +105,7 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
 };
 
 export default function Homepage() {
-  const {featuredCollections, featuredProducts} =
+  const {featuredCollections, aboutRoute, featuredProducts} =
     useLoaderData<typeof loader>();
 
   return (
@@ -123,6 +133,8 @@ export default function Homepage() {
           </Await>
         </Suspense>
       )}
+      <AboutSection aboutRoute={aboutRoute} />
+
       {featuredCollections && (
         <Suspense>
           <Await resolve={featuredCollections}>
@@ -225,4 +237,39 @@ export const FEATURED_COLLECTIONS_QUERY = `#graphql
       }
     }
   }
+` as const;
+
+export const ABOUT_SECTION_QUERY = `#graphql
+query getOurStory($country: CountryCode, $language: LanguageCode)
+  @inContext(country: $country, language: $language) {
+  route: metaobject(handle: {type: "image_with_text", handle: "our-story"}) {
+    type
+    handle
+    image: field(key: "image") {
+      value
+      reference {
+        ... on MediaImage {
+          image {
+            altText
+            url
+            width
+            height
+          }
+        }
+      }
+    }
+    title: field(key: "title") {
+      value
+    }
+    description: field(key: "description") {
+      value
+    }
+    cta: field(key: "cta") {
+      value
+    }
+    cta_link: field(key: "cta_link") {
+      value
+    }
+  }
+}
 ` as const;

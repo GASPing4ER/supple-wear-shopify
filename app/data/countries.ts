@@ -187,9 +187,9 @@ export const countries: Localizations = {
     country: 'SG',
     currency: 'SGD',
   },
-  '/en-si': {
+  '/sl-si': {
     label: 'Slovenia (EUR €)',
-    language: 'EN',
+    language: 'SL',
     country: 'SI',
     currency: 'EUR',
   },
