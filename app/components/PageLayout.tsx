@@ -287,7 +287,7 @@ function DesktopHeader({
           ))}
         </nav>
       </div>
-      <Link className="font-bold" to="/" prefetch="intent">
+      <Link className="font-bold cursor-pointer" to="/" prefetch="intent">
         {title}
       </Link>
       <div className="flex items-center gap-1">

@@ -61,9 +61,9 @@ export const countries: Localizations = {
     country: 'EE',
     currency: 'EUR',
   },
-  '/en-es': {
+  '/es-es': {
     label: 'Spain (EUR €)',
-    language: 'EN',
+    language: 'ES',
     country: 'ES',
     currency: 'EUR',
   },
