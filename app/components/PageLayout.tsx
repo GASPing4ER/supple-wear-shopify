@@ -233,7 +233,7 @@ function MobileHeader({
         to="/"
       >
         <Heading
-          className="font-bold text-center leading-none"
+          className="font-bold text-center leading-none cormorant text-xl"
           as={isHome ? 'h1' : 'h2'}
         >
           SUPPLE
@@ -290,7 +290,11 @@ function DesktopHeader({
           ))}
         </nav>
       </div>
-      <Link className="font-bold cursor-pointer" to="/" prefetch="intent">
+      <Link
+        className="font-bold cursor-pointer cormorant text-2xl"
+        to="/"
+        prefetch="intent"
+      >
         SUPPLE
       </Link>
       <div className="flex items-center gap-1">
@@ -462,7 +466,11 @@ function FooterMenu({menu}: {menu?: EnhancedMenu}) {
             {({open}) => (
               <>
                 <Disclosure.Button className="text-left md:cursor-default">
-                  <Heading className="flex justify-between" size="lead" as="h3">
+                  <Heading
+                    className="flex justify-between cormorant text-xl"
+                    size="lead"
+                    as="h3"
+                  >
                     {item.title}
                     {item?.items?.length > 0 && (
                       <span className="md:hidden">
