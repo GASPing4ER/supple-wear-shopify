@@ -29,6 +29,8 @@ import {useIsHydrated} from '~/hooks/useIsHydrated';
 import {useCartFetchers} from '~/hooks/useCartFetchers';
 import type {RootLoader} from '~/root';
 
+import {AfterFooter} from './AfterFooter';
+
 type LayoutProps = {
   children: React.ReactNode;
   layout?: LayoutQuery & {
@@ -55,6 +57,7 @@ export function PageLayout({children, layout}: LayoutProps) {
         </main>
       </div>
       {footerMenu && <Footer menu={footerMenu} />}
+      <AfterFooter />
     </>
   );
 }
@@ -233,7 +236,7 @@ function MobileHeader({
           className="font-bold text-center leading-none"
           as={isHome ? 'h1' : 'h2'}
         >
-          {title}
+          SUPPLE
         </Heading>
       </Link>
 
@@ -288,7 +291,7 @@ function DesktopHeader({
         </nav>
       </div>
       <Link className="font-bold cursor-pointer" to="/" prefetch="intent">
-        {title}
+        SUPPLE
       </Link>
       <div className="flex items-center gap-1">
         <Form
@@ -421,7 +424,7 @@ function Footer({menu}: {menu?: EnhancedMenu}) {
       as="footer"
       role="contentinfo"
       className={`grid items-start grid-flow-row w-full gap-6 py-8 px-6 md:px-8 lg:px-12 md:gap-8 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount}
-        bg-primary dark:bg-contrast dark:text-primary text-contrast overflow-hidden`}
+        bg-primary dark:bg-contrast dark:text-primary text-contrast`}
     >
       <FooterMenu menu={menu} />
       <CountrySelector />

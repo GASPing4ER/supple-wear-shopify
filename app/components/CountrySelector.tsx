@@ -1,5 +1,5 @@
 import {useFetcher, useLocation, useRouteLoaderData} from '@remix-run/react';
-import {useCallback, useEffect, useRef} from 'react';
+import {useState, useCallback, useEffect, useRef} from 'react';
 import {useInView} from 'react-intersection-observer';
 import clsx from 'clsx';
 import type {CartBuyerIdentityInput} from '@shopify/hydrogen/storefront-api-types';
@@ -52,7 +52,7 @@ export function CountrySelector() {
   return (
     <section
       ref={observerRef}
-      className="grid gap-4"
+      className="grid gap-4 h-auto"
       onMouseLeave={closeDropdown}
     >
       <Heading size="lead" className="cursor-default" as="h3">
