@@ -285,8 +285,8 @@ function DesktopHeader({
               prefetch="intent"
               className={({isActive}) =>
                 isActive
-                  ? 'pb-1 border-b -mb-px uppercase philosopher'
-                  : 'pb-1 uppercase philosopher'
+                  ? 'pb-1 border-b -mb-px uppercase philosopher text-sm'
+                  : 'pb-1 uppercase philosopher text-sm'
               }
             >
               {item.title}
