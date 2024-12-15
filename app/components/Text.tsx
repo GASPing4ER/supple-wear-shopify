@@ -186,7 +186,7 @@ export function PageHeader({
           as="h1"
           width="narrow"
           size="heading"
-          className="inline-block cormorant"
+          className="inline-block philosopher"
         >
           {heading}
         </Heading>

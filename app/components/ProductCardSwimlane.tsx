@@ -10,7 +10,7 @@ import {AddToCartButton} from '~/components/AddToCartButton';
 import {isDiscounted, isNewArrival} from '~/lib/utils';
 import {getProductPlaceholder} from '~/lib/placeholders';
 
-export function ProductCard({
+export function ProductCardSwimlane({
   product,
   label,
   className,
@@ -72,15 +72,15 @@ export function ProductCard({
               {cardLabel}
             </Text> */}
           </div>
-          <div className="flex justify-between">
-            <Text
+          <div className="grid gap-1">
+            {/* <Text
               className="w-full overflow-hidden whitespace-nowrap text-ellipsis philosopher"
               as="h3"
             >
               {product.title}
-            </Text>
+            </Text> */}
             <div className="flex gap-4">
-              <Text className="flex gap-4">
+              {/* <Text className="flex gap-4">
                 <Money withoutTrailingZeros data={price!} />
                 {isDiscounted(price as MoneyV2, compareAtPrice as MoneyV2) && (
                   <CompareAtPrice
@@ -88,7 +88,7 @@ export function ProductCard({
                     data={compareAtPrice as MoneyV2}
                   />
                 )}
-              </Text>
+              </Text> */}
             </div>
           </div>
         </div>

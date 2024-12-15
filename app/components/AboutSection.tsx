@@ -41,11 +41,14 @@ export function AboutSection({aboutRoute}: AboutSectionProps) {
   return (
     <div className="flex h-[50vh] md:h-[70vh]">
       <div className="flex-1 bg-white text-black flex flex-col justify-center items-center gap-3">
-        <h1 className="text-2xl tracking-widest cormorant">{title}</h1>
-        <p className="px-10 sm:px-20 text-center text-xs sm:text-sm philosopher">
+        <h1 className="text-2xl tracking-widest philosopher">{title}</h1>
+        <p className="px-10 sm:px-20 text-center text-xs sm:text-sm cormorant">
           {description}
         </p>
-        <Link to={cta_link} className={`text-sm underline underline-offset-8`}>
+        <Link
+          to={cta_link}
+          className={`text-sm underline underline-offset-8 cormorant`}
+        >
           {cta}
         </Link>
       </div>

@@ -175,9 +175,9 @@ export default function Product() {
                 <Heading as="h1" className="whitespace-normal">
                   {title}
                 </Heading>
-                {vendor && (
+                {/* {vendor && (
                   <Text className={'opacity-50 font-medium'}>{vendor}</Text>
-                )}
+                )} */}
               </div>
               <Suspense fallback={<ProductForm variants={[]} />}>
                 <Await
@@ -212,6 +212,7 @@ export default function Product() {
                     learnMore={`/policies/${refundPolicy.handle}`}
                   />
                 )}
+                <ProductDetail title="Fit" content="Text to be inserted...." />
               </div>
             </section>
           </div>
@@ -418,13 +419,13 @@ export function ProductForm({
                 </Text>
               </AddToCartButton>
             )}
-            {!isOutOfStock && (
+            {/* {!isOutOfStock && (
               <ShopPayButton
                 width="100%"
                 variantIds={[selectedVariant?.id!]}
                 storeDomain={storeDomain}
               />
-            )}
+            )} */}
           </div>
         )}
       </div>

@@ -159,7 +159,9 @@ function MenuMobileNav({
             target={item.target}
             onClick={onClose}
             className={({isActive}) =>
-              isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
+              isActive
+                ? 'pb-1 border-b -mb-px uppercase philosopher'
+                : 'pb-1 uppercase philosopher'
             }
           >
             <Text as="span" size="copy">
@@ -203,7 +205,7 @@ function MobileHeader({
         >
           <IconMenu />
         </button>
-        <Form
+        {/* <Form
           method="get"
           action={params.locale ? `/${params.locale}/search` : '/search'}
           className="items-center gap-2 sm:flex"
@@ -225,7 +227,7 @@ function MobileHeader({
             placeholder="Search"
             name="q"
           />
-        </Form>
+        </Form> */}
       </div>
 
       <Link
@@ -241,7 +243,7 @@ function MobileHeader({
       </Link>
 
       <div className="flex items-center justify-end w-full gap-4">
-        <AccountLink className="relative flex items-center justify-center w-8 h-8" />
+        {/* <AccountLink className="relative flex items-center justify-center w-8 h-8" /> */}
         <CartCount isHome={isHome} openCart={openCart} />
       </div>
     </header>
@@ -264,7 +266,7 @@ function DesktopHeader({
   return (
     <header
       role="banner"
-      className={`${
+      className={`relative ${
         isHome
           ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
           : 'bg-contrast/80 text-primary'
@@ -282,7 +284,9 @@ function DesktopHeader({
               target={item.target}
               prefetch="intent"
               className={({isActive}) =>
-                isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
+                isActive
+                  ? 'pb-1 border-b -mb-px uppercase philosopher'
+                  : 'pb-1 uppercase philosopher'
               }
             >
               {item.title}
@@ -291,14 +295,14 @@ function DesktopHeader({
         </nav>
       </div>
       <Link
-        className="font-bold cursor-pointer cormorant text-2xl"
+        className="font-bold cursor-pointer cormorant text-3xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white/35"
         to="/"
         prefetch="intent"
       >
         SUPPLE
       </Link>
       <div className="flex items-center gap-1">
-        <Form
+        {/* <Form
           method="get"
           action={params.locale ? `/${params.locale}/search` : '/search'}
           className="flex items-center gap-2"
@@ -320,8 +324,8 @@ function DesktopHeader({
           >
             <IconSearch />
           </button>
-        </Form>
-        <AccountLink className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5" />
+        </Form> */}
+        {/* <AccountLink className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5" /> */}
         <CartCount isHome={isHome} openCart={openCart} />
       </div>
     </header>
@@ -439,14 +443,24 @@ function Footer({menu}: {menu?: EnhancedMenu}) {
 function FooterLink({item}: {item: ChildEnhancedMenuItem}) {
   if (item.to.startsWith('http')) {
     return (
-      <a href={item.to} target={item.target} rel="noopener noreferrer">
+      <a
+        href={item.to}
+        target={item.target}
+        rel="noopener noreferrer"
+        className="cormorant"
+      >
         {item.title}
       </a>
     );
   }
 
   return (
-    <Link to={item.to} target={item.target} prefetch="intent">
+    <Link
+      to={item.to}
+      target={item.target}
+      prefetch="intent"
+      className="cormorant"
+    >
       {item.title}
     </Link>
   );
@@ -467,7 +481,7 @@ function FooterMenu({menu}: {menu?: EnhancedMenu}) {
               <>
                 <Disclosure.Button className="text-left md:cursor-default">
                   <Heading
-                    className="flex justify-between cormorant text-xl"
+                    className="flex justify-between philosopher text-xl"
                     size="lead"
                     as="h3"
                   >
