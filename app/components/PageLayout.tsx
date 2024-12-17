@@ -2,7 +2,7 @@ import {useParams, Form, Await, useRouteLoaderData} from '@remix-run/react';
 import useWindowScroll from 'react-use/esm/useWindowScroll';
 import {Disclosure} from '@headlessui/react';
 import {Suspense, useEffect, useMemo} from 'react';
-import {CartForm} from '@shopify/hydrogen';
+import {CartForm, Image} from '@shopify/hydrogen';
 
 import {type LayoutQuery} from 'storefrontapi.generated';
 import {Text, Heading, Section} from '~/components/Text';
@@ -294,8 +294,13 @@ function DesktopHeader({
           ))}
         </nav>
       </div>
+      <img
+        src="/logo.svg"
+        alt="logo"
+        className="w-[75px] h-[75px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-40"
+      />
       <Link
-        className="font-bold cursor-pointer cormorant text-3xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white/35"
+        className="font-bold cursor-pointer cormorant text-3xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         to="/"
         prefetch="intent"
       >
