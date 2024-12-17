@@ -133,29 +133,71 @@ export default function Homepage() {
           </Await>
         </Suspense>
       )}
+      <section className="w-full">
+        <div className="flex h-[70vh] w-full mb-4">
+          <div className="flex-1 h-full">
+            <img
+              src="/images/products/cyd-black.jpg"
+              alt="essentia"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="flex-1 h-full flex">
+            <div className="flex flex-col justify-center gap-4 p-8">
+              <h2 className="philosopher text-5xl">ESSENTIA COLLECTION</h2>
+              <p className="cormorant text-lg">
+                Welcome to the first drop of Supple! Our Essentia collection is
+                a blend of elegance and comfort. These pieces are designed to
+                serve as timeless additions to your wardrobe.
+              </p>
+              <h3 className="italic text-2xl">Iconic Inspiration</h3>
+              <p className="cormorant text-lg">
+                Each bodysuit in this collection is named after a legendary
+                beauty — women who defined elegance, grace, and timeless style.
+                From the silver screen to the ballet studio, these icons left a
+                mark on fashion and culture, and we honor them with our designs:
+              </p>
+              <p>
+                AUDREY: A sleek long-sleeve bodysuit, just like Audrey Hepburn —
+                always refined, always chic.
+              </p>
+              <p>
+                BRIGITTE: A stunning long-sleeve bodysuit with a crisscross
+                back, inspired by Brigitte Bardot’s sensual yet sophisticated
+                style.
+              </p>
+              <p>
+                CYD: A sleeveless design with a zip detail, channeling the bold
+                beauty of Cyd Charisse — daring, yet effortlessly elegant.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-4 h-[75vh] my-4">
+          <div className="flex-1">
+            <img
+              src="/images/products/audrey-burgundy.jpg"
+              alt="product"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="flex-1">
+            <img
+              src="/images/products/brigitte-green.jpg"
+              alt="product"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="flex-1">
+            <img
+              src="/images/products/cyd-beige.jpg"
+              alt="product"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
       <AboutSection aboutRoute={aboutRoute} />
-
-      {featuredCollections && (
-        <Suspense>
-          <Await resolve={featuredCollections}>
-            {(response) => {
-              if (
-                !response ||
-                !response?.collections ||
-                !response?.collections?.nodes
-              ) {
-                return <></>;
-              }
-              return (
-                <FeaturedCollections
-                  collections={response.collections}
-                  title="Collections"
-                />
-              );
-            }}
-          </Await>
-        </Suspense>
-      )}
     </>
   );
 }

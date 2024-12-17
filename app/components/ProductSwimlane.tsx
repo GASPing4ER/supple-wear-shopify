@@ -1,5 +1,4 @@
 import type {HomepageFeaturedProductsQuery} from 'storefrontapi.generated';
-import {Section} from '~/components/Text';
 
 import {ProductCardSwimlane} from './ProductCardSwimlane';
 
