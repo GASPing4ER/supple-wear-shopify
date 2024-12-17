@@ -19,16 +19,16 @@ export function ProductSwimlane({
   ...props
 }: ProductSwimlaneProps) {
   return (
-    <Section padding="y" {...props}>
-      <div className="swimlane hiddenScroll md:pb-8 md:scroll-px-8 lg:scroll-px-12 md:px-8 lg:px-12">
+    <section {...props}>
+      <div className="swimlane scroll-p-0 pt-4 pb-4 hiddenScroll ">
         {products.nodes.map((product) => (
           <ProductCardSwimlane
             product={product}
             key={product.id}
-            className="snap-start w-80"
+            className="snap-start w-96"
           />
         ))}
       </div>
-    </Section>
+    </section>
   );
 }

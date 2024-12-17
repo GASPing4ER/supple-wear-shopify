@@ -46,7 +46,7 @@ export function ProductCardSwimlane({
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col">
       <Link
         onClick={onClick}
         to={`/products/${product.handle}`}
@@ -64,32 +64,6 @@ export function ProductCardSwimlane({
                 loading={loading}
               />
             )}
-            {/* <Text
-              as="label"
-              size="fine"
-              className="absolute top-0 right-0 m-4 text-right text-notice"
-            >
-              {cardLabel}
-            </Text> */}
-          </div>
-          <div className="grid gap-1">
-            {/* <Text
-              className="w-full overflow-hidden whitespace-nowrap text-ellipsis philosopher"
-              as="h3"
-            >
-              {product.title}
-            </Text> */}
-            <div className="flex gap-4">
-              {/* <Text className="flex gap-4">
-                <Money withoutTrailingZeros data={price!} />
-                {isDiscounted(price as MoneyV2, compareAtPrice as MoneyV2) && (
-                  <CompareAtPrice
-                    className={'opacity-50'}
-                    data={compareAtPrice as MoneyV2}
-                  />
-                )}
-              </Text> */}
-            </div>
           </div>
         </div>
       </Link>
