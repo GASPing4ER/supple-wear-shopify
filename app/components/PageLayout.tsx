@@ -3,6 +3,7 @@ import useWindowScroll from 'react-use/esm/useWindowScroll';
 import {Disclosure} from '@headlessui/react';
 import {Suspense, useEffect, useMemo} from 'react';
 import {CartForm, Image} from '@shopify/hydrogen';
+import {Facebook, Instagram} from 'lucide-react';
 
 import {type LayoutQuery} from 'storefrontapi.generated';
 import {Text, Heading, Section} from '~/components/Text';
@@ -244,6 +245,12 @@ function MobileHeader({
 
       <div className="flex items-center justify-end w-full gap-4">
         {/* <AccountLink className="relative flex items-center justify-center w-8 h-8" /> */}
+        <a href="https://www.facebook.com/profile.php?id=61562103220296">
+          <Facebook height={18} width={18} />
+        </a>
+        <a href="https://www.instagram.com/supplewear/">
+          <Instagram height={18} width={18} />
+        </a>
         <CartCount isHome={isHome} openCart={openCart} />
       </div>
     </header>
@@ -306,7 +313,7 @@ function DesktopHeader({
       >
         SUPPLE
       </Link>
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-2">
         {/* <Form
           method="get"
           action={params.locale ? `/${params.locale}/search` : '/search'}
@@ -331,6 +338,12 @@ function DesktopHeader({
           </button>
         </Form> */}
         {/* <AccountLink className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5" /> */}
+        <a href="https://www.facebook.com/profile.php?id=61562103220296">
+          <Facebook height={18} width={18} />
+        </a>
+        <a href="https://www.instagram.com/supplewear/">
+          <Instagram height={18} width={18} />
+        </a>
         <CartCount isHome={isHome} openCart={openCart} />
       </div>
     </header>
