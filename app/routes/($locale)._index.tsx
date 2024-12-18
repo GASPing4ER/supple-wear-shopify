@@ -8,6 +8,7 @@ import {Await, useLoaderData} from '@remix-run/react';
 import {getSeoMeta} from '@shopify/hydrogen';
 
 import {FeaturedCollections} from '~/components/FeaturedCollections';
+import {collection_section} from '~/data/translations';
 import {ProductSwimlane} from '~/components/ProductSwimlane';
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {seoPayload} from '~/lib/seo.server';
@@ -97,6 +98,7 @@ function loadDeferredData({context}: LoaderFunctionArgs) {
   return {
     featuredProducts,
     featuredCollections,
+    language,
   };
 }
 
@@ -105,7 +107,7 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
 };
 
 export default function Homepage() {
-  const {featuredCollections, aboutRoute, featuredProducts} =
+  const {aboutRoute, featuredProducts, language} =
     useLoaderData<typeof loader>();
 
   return (
@@ -146,29 +148,47 @@ export default function Homepage() {
             <div className="flex flex-col justify-center gap-4 p-8">
               <h2 className="philosopher text-5xl">ESSENTIA COLLECTION</h2>
               <p className="cormorant text-lg">
-                Welcome to the first drop of Supple! Our Essentia collection is
-                a blend of elegance and comfort. These pieces are designed to
-                serve as timeless additions to your wardrobe.
+                {language === 'EN'
+                  ? collection_section.description.EN
+                  : language === 'ES'
+                  ? collection_section.description.ES
+                  : collection_section.description.SL}
               </p>
-              <h3 className="italic text-2xl">Iconic Inspiration</h3>
+              <h3 className="italic text-2xl">
+                {' '}
+                {language === 'EN'
+                  ? collection_section.title2.EN
+                  : language === 'ES'
+                  ? collection_section.title2.ES
+                  : collection_section.title2.SL}
+              </h3>
               <p className="cormorant text-lg">
-                Each bodysuit in this collection is named after a legendary
-                beauty — women who defined elegance, grace, and timeless style.
-                From the silver screen to the ballet studio, these icons left a
-                mark on fashion and culture, and we honor them with our designs:
+                {language === 'EN'
+                  ? collection_section.description2.EN
+                  : language === 'ES'
+                  ? collection_section.description2.ES
+                  : collection_section.description2.SL}
               </p>
               <p>
-                AUDREY: A sleek long-sleeve bodysuit, just like Audrey Hepburn —
-                always refined, always chic.
+                {language === 'EN'
+                  ? collection_section.audrey.EN
+                  : language === 'ES'
+                  ? collection_section.audrey.ES
+                  : collection_section.audrey.SL}
               </p>
               <p>
-                BRIGITTE: A stunning long-sleeve bodysuit with a crisscross
-                back, inspired by Brigitte Bardot’s sensual yet sophisticated
-                style.
+                {language === 'EN'
+                  ? collection_section.brigitte.EN
+                  : language === 'ES'
+                  ? collection_section.brigitte.ES
+                  : collection_section.brigitte.SL}
               </p>
               <p>
-                CYD: A sleeveless design with a zip detail, channeling the bold
-                beauty of Cyd Charisse — daring, yet effortlessly elegant.
+                {language === 'EN'
+                  ? collection_section.cyd.EN
+                  : language === 'ES'
+                  ? collection_section.cyd.ES
+                  : collection_section.cyd.SL}
               </p>
             </div>
           </div>
