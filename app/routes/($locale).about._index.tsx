@@ -26,7 +26,14 @@ export default function Page() {
   return (
     <>
       <main className="p-10 flex flex-col gap-10">
-        <h1 className="philosopher text-4xl text-center">ABOUT</h1>
+        <h1 className="philosopher text-4xl text-center">
+          {' '}
+          {language === 'EN'
+            ? about_page.title.EN
+            : language === 'ES'
+            ? about_page.title.ES
+            : about_page.title.SL}
+        </h1>
         <section className="cormorant flex flex-col xl:flex-row gap-10 w-full xl:h-[600px]">
           <div className="flex-1 flex flex-col gap-4">
             <p>

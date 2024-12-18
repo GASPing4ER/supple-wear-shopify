@@ -136,12 +136,14 @@ export default function Homepage() {
         </Suspense>
       )}
       <section className="w-full">
-        <div className="flex h-[70vh] w-full mb-4">
+        <div className="flex flex-col xl:flex-row xl:h-[70vh] w-full mb-4">
           <div className="flex-1 h-full">
-            <img
-              src="/images/products/cyd-black.jpg"
-              alt="essentia"
-              className="h-full w-full object-cover"
+            <video
+              src="/videos/supple.mp4"
+              className="object-cover w-full h-full hidden xl:block"
+              autoPlay
+              loop
+              muted
             />
           </div>
           <div className="flex-1 h-full flex">
@@ -193,7 +195,7 @@ export default function Homepage() {
             </div>
           </div>
         </div>
-        <div className="flex gap-4 h-[75vh] my-4">
+        <div className="flex flex-col sm:flex-row gap-4 sm:h-[75vh] my-4">
           <div className="flex-1">
             <img
               src="/images/products/audrey-burgundy.jpg"

@@ -32,6 +32,11 @@ export const collection_section = {
 };
 
 export const about_page = {
+  title: {
+    EN: 'ABOUT',
+    ES: 'SOBRE',
+    SL: 'O NAS',
+  },
   about: {
     EN: 'SUPPLE is a premium ballet-inspired activewear brand created for a modern woman wanting to feel comfortable during her workout but also be fashionable in post-workout activities like having brunch with her friends. Sourced from Italy and manufactured in Slovenia (Europe), Supple pieces are created with your comfort, elegance, and sustainability in mind.',
     ES: 'SUPPLE es una marca premium de ropa deportiva inspirada en el ballet, creada para una mujer moderna que quiere sentirse cómoda durante su entrenamiento pero también estar a la moda en actividades posteriores como un brunch con sus amigas. Procedente de Italia y fabricada en Eslovenia (Europa), las piezas de Supple se crean pensando en tu comodidad, elegancia y sostenibilidad.',
