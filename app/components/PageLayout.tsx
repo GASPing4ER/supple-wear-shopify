@@ -52,12 +52,12 @@ export function PageLayout({children, layout}: LayoutProps) {
         </div>
         <div className="bg-[#F5F5DC] p-4 text-black text-center uppercase">
           <p>
-            Welcome to the Supple preorder! Become a part of the Supple family
-            by joining our first ever drop.
+            Welcome to the <strong>Supple preorder!</strong> Become a part of
+            the Supple family by joining our <strong>first ever drop.</strong>
           </p>
           <p>
-            All preorders come with free shipping and will be shipped on January
-            20th 2025.
+            All preorders come with <strong>free shipping</strong> and will be
+            shipped on <strong>January 20th 2025.</strong>
           </p>
         </div>
         {headerMenu && layout?.shop.name && (
