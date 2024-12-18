@@ -50,6 +50,16 @@ export function PageLayout({children, layout}: LayoutProps) {
             Skip to content
           </a>
         </div>
+        <div className="bg-[#F5F5DC] p-4 text-black text-center uppercase">
+          <p>
+            Welcome to the Supple preorder! Become a part of the Supple family
+            by joining our first ever drop.
+          </p>
+          <p>
+            All preorders come with free shipping and will be shipped on January
+            20th 2025.
+          </p>
+        </div>
         {headerMenu && layout?.shop.name && (
           <Header title={layout.shop.name} menu={headerMenu} />
         )}
