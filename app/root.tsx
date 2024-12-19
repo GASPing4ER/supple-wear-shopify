@@ -145,6 +145,7 @@ function Layout({children}: {children?: React.ReactNode}) {
         <Links />
       </head>
       <body>
+        <div className="klaviyo-form-WBUUxk"></div>
         {data ? (
           <Analytics.Provider
             cart={data.cart}

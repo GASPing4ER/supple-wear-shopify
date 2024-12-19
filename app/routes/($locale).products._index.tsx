@@ -19,7 +19,7 @@ import {getImageLoadingPriority} from '~/lib/const';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
 
-const PAGE_BY = 10;
+const PAGE_BY = 15;
 
 export const headers = routeHeaders;
 
@@ -69,13 +69,19 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
 
 export default function AllProducts() {
   const {products} = useLoaderData<typeof loader>();
+  const sortedProducts = [...products.nodes].sort((a, b) => {
+    const colorA = a.variants.nodes[0].selectedOptions[0].value;
+    const colorB = b.variants.nodes[0].selectedOptions[0].value;
+    return colorA.localeCompare(colorB);
+  });
+  console.log(products);
   return (
     <>
       {/* <PageHeader heading="All Products" variant="allCollections" /> */}
       <Section>
         <Pagination connection={products}>
           {({nodes, isLoading, NextLink, PreviousLink}) => {
-            const itemsMarkup = nodes.map((product, i) => (
+            const itemsMarkup = sortedProducts.map((product, i) => (
               <ProductCard
                 key={product.id}
                 product={product}
