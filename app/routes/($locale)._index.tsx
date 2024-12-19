@@ -156,7 +156,7 @@ export default function Homepage() {
                   ? collection_section.description.ES
                   : collection_section.description.SL}
               </p>
-              <h3 className="italic text-2xl">
+              <h3 className="italic philosopher text-2xl">
                 {' '}
                 {language === 'EN'
                   ? collection_section.title2.EN
@@ -171,21 +171,21 @@ export default function Homepage() {
                   ? collection_section.description2.ES
                   : collection_section.description2.SL}
               </p>
-              <p>
+              <p className="cormorant text-lg">
                 {language === 'EN'
                   ? collection_section.audrey.EN
                   : language === 'ES'
                   ? collection_section.audrey.ES
                   : collection_section.audrey.SL}
               </p>
-              <p>
+              <p className="cormorant text-lg">
                 {language === 'EN'
                   ? collection_section.brigitte.EN
                   : language === 'ES'
                   ? collection_section.brigitte.ES
                   : collection_section.brigitte.SL}
               </p>
-              <p>
+              <p className="cormorant text-lg">
                 {language === 'EN'
                   ? collection_section.cyd.EN
                   : language === 'ES'

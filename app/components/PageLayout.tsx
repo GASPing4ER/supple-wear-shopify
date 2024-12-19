@@ -34,13 +34,14 @@ import {AfterFooter} from './AfterFooter';
 
 type LayoutProps = {
   children: React.ReactNode;
+  language: string;
   layout?: LayoutQuery & {
     headerMenu?: EnhancedMenu | null;
     footerMenu?: EnhancedMenu | null;
   };
 };
 
-export function PageLayout({children, layout}: LayoutProps) {
+export function PageLayout({children, language, layout}: LayoutProps) {
   const {headerMenu, footerMenu} = layout || {};
   return (
     <>
@@ -67,7 +68,7 @@ export function PageLayout({children, layout}: LayoutProps) {
           {children}
         </main>
       </div>
-      {footerMenu && <Footer menu={footerMenu} />}
+      {footerMenu && <Footer language={language} menu={footerMenu} />}
       <AfterFooter />
     </>
   );
@@ -360,20 +361,20 @@ function DesktopHeader({
   );
 }
 
-function AccountLink({className}: {className?: string}) {
-  const rootData = useRouteLoaderData<RootLoader>('root');
-  const isLoggedIn = rootData?.isLoggedIn;
+// function AccountLink({className}: {className?: string}) {
+//   const rootData = useRouteLoaderData<RootLoader>('root');
+//   const isLoggedIn = rootData?.isLoggedIn;
 
-  return (
-    <Link to="/account" className={className}>
-      <Suspense fallback={<IconLogin />}>
-        <Await resolve={isLoggedIn} errorElement={<IconLogin />}>
-          {(isLoggedIn) => (isLoggedIn ? <IconAccount /> : <IconLogin />)}
-        </Await>
-      </Suspense>
-    </Link>
-  );
-}
+//   return (
+//     <Link to="/account" className={className}>
+//       <Suspense fallback={<IconLogin />}>
+//         <Await resolve={isLoggedIn} errorElement={<IconLogin />}>
+//           {(isLoggedIn) => (isLoggedIn ? <IconAccount /> : <IconLogin />)}
+//         </Await>
+//       </Suspense>
+//     </Link>
+//   );
+// }
 
 function CartCount({
   isHome,
@@ -446,7 +447,7 @@ function Badge({
   );
 }
 
-function Footer({menu}: {menu?: EnhancedMenu}) {
+function Footer({menu, language}: {menu?: EnhancedMenu; language: string}) {
   const isHome = useIsHomePath();
   const itemsCount = menu
     ? menu?.items?.length + 1 > 4
@@ -463,7 +464,7 @@ function Footer({menu}: {menu?: EnhancedMenu}) {
         bg-primary dark:bg-contrast dark:text-primary text-contrast`}
     >
       <FooterMenu menu={menu} />
-      <CountrySelector />
+      <CountrySelector language={language} />
     </Section>
   );
 }

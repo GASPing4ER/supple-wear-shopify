@@ -96,57 +96,59 @@ export default function Page() {
               ? about_page.why_choose_supple.ES
               : about_page.why_choose_supple.SL}
           </h2>
-          <ul className="flex flex-col gap-4 cormorant">
-            <li>
-              {language === 'EN'
-                ? about_page.premium_materials.EN
-                : language === 'ES'
-                ? about_page.premium_materials.ES
-                : about_page.premium_materials.SL}
-            </li>
-            <li>
-              {language === 'EN'
-                ? about_page.timeless_elegance.EN
-                : language === 'ES'
-                ? about_page.timeless_elegance.ES
-                : about_page.timeless_elegance.SL}
-            </li>
-            <li>
-              {language === 'EN'
-                ? about_page.comfort.EN
-                : language === 'ES'
-                ? about_page.comfort.ES
-                : about_page.comfort.SL}
-            </li>
-            <li>
-              {language === 'EN'
-                ? about_page.flattering_fit.EN
-                : language === 'ES'
-                ? about_page.flattering_fit.ES
-                : about_page.flattering_fit.SL}
-            </li>
-            <li>
-              {language === 'EN'
-                ? about_page.supporting_local.EN
-                : language === 'ES'
-                ? about_page.supporting_local.ES
-                : about_page.supporting_local.SL}
-            </li>
-            <li>
-              {language === 'EN'
-                ? about_page.sustainability.EN
-                : language === 'ES'
-                ? about_page.sustainability.ES
-                : about_page.sustainability.SL}
-            </li>
-            <li>
-              {language === 'EN'
-                ? about_page.versatility.EN
-                : language === 'ES'
-                ? about_page.versatility.ES
-                : about_page.versatility.SL}
-            </li>
-          </ul>
+          <div>
+            <ul className="flex flex-col gap-4 cormorant">
+              <li>
+                {language === 'EN'
+                  ? about_page.premium_materials.EN
+                  : language === 'ES'
+                  ? about_page.premium_materials.ES
+                  : about_page.premium_materials.SL}
+              </li>
+              <li>
+                {language === 'EN'
+                  ? about_page.timeless_elegance.EN
+                  : language === 'ES'
+                  ? about_page.timeless_elegance.ES
+                  : about_page.timeless_elegance.SL}
+              </li>
+              <li>
+                {language === 'EN'
+                  ? about_page.comfort.EN
+                  : language === 'ES'
+                  ? about_page.comfort.ES
+                  : about_page.comfort.SL}
+              </li>
+              <li>
+                {language === 'EN'
+                  ? about_page.flattering_fit.EN
+                  : language === 'ES'
+                  ? about_page.flattering_fit.ES
+                  : about_page.flattering_fit.SL}
+              </li>
+              <li>
+                {language === 'EN'
+                  ? about_page.supporting_local.EN
+                  : language === 'ES'
+                  ? about_page.supporting_local.ES
+                  : about_page.supporting_local.SL}
+              </li>
+              <li>
+                {language === 'EN'
+                  ? about_page.sustainability.EN
+                  : language === 'ES'
+                  ? about_page.sustainability.ES
+                  : about_page.sustainability.SL}
+              </li>
+              <li>
+                {language === 'EN'
+                  ? about_page.versatility.EN
+                  : language === 'ES'
+                  ? about_page.versatility.ES
+                  : about_page.versatility.SL}
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
     </>

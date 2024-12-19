@@ -153,6 +153,7 @@ function Layout({children}: {children?: React.ReactNode}) {
           >
             <PageLayout
               key={`${locale.language}-${locale.country}`}
+              language={locale.language}
               layout={data.layout}
             >
               {children}

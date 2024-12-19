@@ -12,7 +12,7 @@ import type {Localizations, Locale} from '~/lib/type';
 import {DEFAULT_LOCALE} from '~/lib/utils';
 import type {RootLoader} from '~/root';
 
-export function CountrySelector() {
+export function CountrySelector({language}: {language: string}) {
   const fetcher = useFetcher();
   const closeRef = useRef<HTMLDetailsElement>(null);
   const rootData = useRouteLoaderData<RootLoader>('root');
@@ -56,7 +56,7 @@ export function CountrySelector() {
       onMouseLeave={closeDropdown}
     >
       <Heading size="lead" className="cursor-default" as="h3">
-        Country
+        {language === 'SL' ? 'Jezik' : 'Language'}
       </Heading>
       <div className="relative">
         <details
