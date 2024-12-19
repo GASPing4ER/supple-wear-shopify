@@ -19,7 +19,7 @@ import {getImageLoadingPriority} from '~/lib/const';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
 
-const PAGE_BY = 8;
+const PAGE_BY = 10;
 
 export const headers = routeHeaders;
 
@@ -69,7 +69,6 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
 
 export default function AllProducts() {
   const {products} = useLoaderData<typeof loader>();
-
   return (
     <>
       {/* <PageHeader heading="All Products" variant="allCollections" /> */}

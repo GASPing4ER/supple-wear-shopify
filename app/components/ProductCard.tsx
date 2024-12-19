@@ -73,12 +73,17 @@ export function ProductCard({
             </Text> */}
           </div>
           <div className="flex justify-between">
-            <Text
-              className="w-full overflow-hidden whitespace-nowrap text-ellipsis philosopher"
-              as="h3"
-            >
-              {product.title}
-            </Text>
+            <div>
+              <Text
+                className="w-full overflow-hidden whitespace-nowrap text-ellipsis philosopher"
+                as="h3"
+              >
+                {product.title}
+              </Text>
+              <h4 className="text-sm">
+                {product.variants.nodes[0].selectedOptions[0].value}
+              </h4>
+            </div>
             <div className="flex gap-4">
               <Text className="flex gap-4">
                 <Money withoutTrailingZeros data={price!} />

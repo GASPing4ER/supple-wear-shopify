@@ -160,7 +160,6 @@ export default function Product() {
   const {product, shop, recommended, variants} = useLoaderData<typeof loader>();
   const {media, title, vendor, descriptionHtml} = product;
   const {shippingPolicy, refundPolicy} = shop;
-
   return (
     <>
       <Section className="px-0 md:px-8 lg:px-12">
@@ -175,6 +174,7 @@ export default function Product() {
                 <Heading as="h1" className="whitespace-normal">
                   {title}
                 </Heading>
+                <h2>{product.options[0].values[0]}</h2>
                 {/* {vendor && (
                   <Text className={'opacity-50 font-medium'}>{vendor}</Text>
                 )} */}
