@@ -575,7 +575,7 @@ function ProductProperties({
               </div>
               <div className="flex gap-2 items-center">
                 <img
-                  src="/icons/icon1.svg"
+                  src="/icons/icon2.svg"
                   alt="featherweight & soft touch"
                   className="w-[75px] h-[75px]"
                 />
@@ -602,7 +602,11 @@ function ProductProperties({
                 </p>
               </div>
               <div className="flex gap-2 items-center">
-                <img src="" alt="breathable" className="w-[75px] h-[75px]" />
+                <img
+                  src="/icons/icon4.svg"
+                  alt="breathable"
+                  className="w-[75px] h-[75px]"
+                />
                 <p>
                   {language === 'EN'
                     ? 'Breathable'
