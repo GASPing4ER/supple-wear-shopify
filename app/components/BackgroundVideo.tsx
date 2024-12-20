@@ -1,6 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-/* eslint-disable jsx-a11y/media-has-caption */
-
 const BackgroundVideo = () => {
   return (
     <main className="h-screen relative">
@@ -9,6 +6,7 @@ const BackgroundVideo = () => {
         className="object-cover w-full h-full hidden md:block"
         autoPlay
         loop
+        muted
       />
       <img
         src="/images/hero.webp"
