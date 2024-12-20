@@ -22,8 +22,8 @@ export default async function handleRequest(
       'https://shopify.com',
       'https://www.google-analytics.com',
       'https://www.googletagmanager.com',
-      'https://a.klaviyo.com',
-      'https://cdn-cookieyes.com/*',
+      'https://cdn-cookieyes.com',
+      'https://cdn-cookieyes.com/client_data/*',
       '*.firebasedatabase.app/', // Firebase Realtime Database
       ...(process.env.NODE_ENV !== 'production'
         ? ["'unsafe-eval'", 'http://localhost:*']
