@@ -71,7 +71,7 @@ export default function Page() {
                 ? about_page.supple_vision.ES
                 : about_page.supple_vision.SL}
             </p>
-            <p>
+            <p className="font-bold">
               {language === 'EN'
                 ? about_page.call_to_action.EN
                 : language === 'ES'
