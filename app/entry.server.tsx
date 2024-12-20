@@ -17,13 +17,23 @@ export default async function handleRequest(
       storeDomain: context.env.PUBLIC_STORE_DOMAIN,
     },
     scriptSrc: [
-      'self',
+      "'self'",
       'https://cdn.shopify.com',
       'https://shopify.com',
       'https://www.google-analytics.com',
       'https://www.googletagmanager.com',
-      'https://supple-wear-default-rtdb.europe-west1.firebasedatabase.app',
-      ...(process.env.NODE_ENV !== 'production' ? ['http://localhost:*'] : []),
+      'https://a.klaviyo.com',
+      '*.firebasedatabase.app', // Firebase Realtime Database
+      ...(process.env.NODE_ENV !== 'production'
+        ? ["'unsafe-eval'", 'http://localhost:*']
+        : []),
+    ],
+    connectSrc: [
+      "'self'",
+      '*.firebasedatabase.app', // Firebase API
+      '*.firebaseio.com', // Firebase WebSocket
+      'wss://*.firebasedatabase.app', // Firebase WebSocket fallback
+      ...(process.env.NODE_ENV !== 'production' ? ['ws://localhost:*'] : []),
     ],
   });
 
