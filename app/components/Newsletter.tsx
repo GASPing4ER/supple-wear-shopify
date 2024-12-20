@@ -11,12 +11,23 @@ type NewsletterProps = {
 
 const Newsletter = ({language}: NewsletterProps) => {
   const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState<null | string>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission logic
+    const errorData = await addNewsletterToFirebase(email);
+    setError(errorData);
+    if (errorData !== null) {
+      setEmail('');
+      setIsSubmitted(true);
+      setMessage('Submission failed');
+    }
+    setIsSubmitted(true);
+    setMessage('Submission successful');
     setEmail('');
-    addNewsletterToFirebase(email);
   };
 
   return (
@@ -37,44 +48,54 @@ const Newsletter = ({language}: NewsletterProps) => {
           : newsletter.paragraph.SL}
       </p>
       <form onSubmit={handleSubmit} className="flex flex-col">
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={
-            language === 'EN'
-              ? newsletter.email_placeholder.EN
-              : language === 'ES'
-              ? newsletter.email_placeholder.ES
-              : newsletter.email_placeholder.SL
-          }
-          className="border-0 bg-transparent border-b-[1px] rounded-none dark:border-white placeholder:text-sm dark:placeholder:text-white pl-0 pb-2"
-        />
-        {/* <div className="flex gap-2 mt-4">
-          <input
-            type="radio"
-            id="consent"
-            name="consent"
-            checked={isConsented}
-            onChange={handleConsentChange}
-          />
-          <label htmlFor="consent" className="text-xs">
-            {content.newsletter["radio-button"]}
-          </label>
-        </div> */}
-        <button
-          type="submit"
-          className="mt-4 px-4 py-2 dark:bg-white bg-black dark:text-black text-white text-xs"
-          aria-label="Submit"
-        >
-          {language === 'EN'
-            ? newsletter.button.EN
-            : language === 'ES'
-            ? newsletter.button.ES
-            : newsletter.button.SL}
-        </button>
+        {!isSubmitted ? (
+          <>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={
+                language === 'EN'
+                  ? newsletter.email_placeholder.EN
+                  : language === 'ES'
+                  ? newsletter.email_placeholder.ES
+                  : newsletter.email_placeholder.SL
+              }
+              className="border-0 bg-transparent border-b-[1px] rounded-none dark:border-white placeholder:text-sm dark:placeholder:text-white pl-0 pb-2"
+            />
+            {/* <div className="flex gap-2 mt-4">
+              <input
+                type="radio"
+                id="consent"
+                name="consent"
+                checked={isConsented}
+                onChange={handleConsentChange}
+              />
+              <label htmlFor="consent" className="text-xs">
+                {content.newsletter['radio-button']}
+              </label>
+            </div>{' '} */}
+            <button
+              type="submit"
+              className="mt-4 px-4 py-2 dark:bg-white bg-black dark:text-black text-white text-xs"
+              aria-label="Submit"
+            >
+              {language === 'EN'
+                ? newsletter.button.EN
+                : language === 'ES'
+                ? newsletter.button.ES
+                : newsletter.button.SL}
+            </button>
+          </>
+        ) : (
+          <div
+            className={`${error === null ? 'text-green-400' : 'text-red-500'}`}
+          >
+            {message}
+          </div>
+        )}
       </form>
     </div>
   );

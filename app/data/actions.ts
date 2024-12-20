@@ -15,7 +15,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-export const addNewsletterToFirebase = async (email: string) => {
+export const addNewsletterToFirebase = async (
+  email: string,
+): Promise<null | string> => {
   const usersRef = ref(database, 'newsletter');
   const newDataRef = push(usersRef);
 
@@ -23,8 +25,9 @@ export const addNewsletterToFirebase = async (email: string) => {
     set(newDataRef, {
       email,
     });
+    return null;
   } catch (error) {
-    return error;
+    return error as string;
   }
 };
 
@@ -34,7 +37,9 @@ export type TInquiryContact = {
   message: string;
 };
 
-export const addInquiryToFirebase = async (inquiry: TInquiryContact) => {
+export const addInquiryToFirebase = async (
+  inquiry: TInquiryContact,
+): Promise<null | string> => {
   const usersRef = ref(database, 'contact');
   const newDataRef = push(usersRef);
 
@@ -44,7 +49,8 @@ export const addInquiryToFirebase = async (inquiry: TInquiryContact) => {
       email: inquiry.email,
       message: inquiry.message,
     });
+    return null;
   } catch (error) {
-    return error;
+    return error as string;
   }
 };

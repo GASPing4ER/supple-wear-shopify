@@ -15,10 +15,9 @@ const ContactForm = ({language}: ContactFormProps) => {
     email: '',
     message: '',
   });
-  const [status, setStatus] = useState<number | null>(null);
-  const [message, setMessage] = useState<string>('');
-  const [buttonDisabled, setButtonDisabled] = useState<boolean>(false);
-  const [submitting, setSubmitting] = useState<boolean>(false);
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState<null | string>(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Handler to update state on input change
   const handleInputChange = (
@@ -33,16 +32,24 @@ const ContactForm = ({language}: ContactFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitting(true);
-    await addInquiryToFirebase(formData);
-
+    const errorData = await addInquiryToFirebase(formData);
+    setError(errorData);
+    if (errorData !== null) {
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+      });
+      setIsSubmitted(true);
+      setMessage('Submission failed');
+    }
     setFormData({
       name: '',
       email: '',
       message: '',
     });
-
-    setSubmitting(false);
+    setIsSubmitted(true);
+    setMessage('Submission successful');
   };
   return (
     <form
@@ -100,26 +107,26 @@ const ContactForm = ({language}: ContactFormProps) => {
       <button
         type="submit"
         className={`cormorant dark:bg-primary bg-primary dark:text-contrast text-contrast px-8 py-2 disabled:opacity-80`}
-        disabled={buttonDisabled}
+        disabled={isSubmitted}
         aria-label="Submit Form"
       >
-        {submitting
-          ? 'SUBMITTING'
+        {isSubmitted
+          ? 'SUBMITTED'
           : language === 'EN'
           ? contact_page.cta.EN
           : language === 'ES'
           ? contact_page.cta.ES
           : contact_page.cta.SL}
       </button>
-      {/* {message && (
+      {message && (
         <p
           className={`${
-            status !== 201 ? 'text-red-500' : 'text-green-500'
+            error !== null ? 'text-red-500' : 'text-green-500'
           } pt-4 font-black`}
         >
           {message}
         </p>
-      )} */}
+      )}
     </form>
   );
 };
