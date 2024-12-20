@@ -104,6 +104,7 @@ async function loadCriticalData({
     storeDomain: shop.primaryDomain.url,
     recommended,
     seo,
+    language: context.storefront.i18n.language,
   };
 }
 
@@ -157,7 +158,8 @@ function redirectToFirstVariant({
 }
 
 export default function Product() {
-  const {product, shop, recommended, variants} = useLoaderData<typeof loader>();
+  const {product, shop, recommended, variants, language} =
+    useLoaderData<typeof loader>();
   const {media, title, vendor, descriptionHtml} = product;
   const {shippingPolicy, refundPolicy} = shop;
   return (
@@ -194,25 +196,52 @@ export default function Product() {
               <div className="grid gap-4 py-4">
                 {descriptionHtml && (
                   <ProductDetail
-                    title="Product Details"
+                    title={
+                      language === 'EN'
+                        ? 'Product Details'
+                        : language === 'ES'
+                        ? 'Detalles del producto'
+                        : 'Podrobnosti o izdelku'
+                    }
                     content={descriptionHtml}
                   />
                 )}
-                {shippingPolicy?.body && (
-                  <ProductDetail
-                    title="Shipping"
-                    content={getExcerpt(shippingPolicy.body)}
-                    learnMore={`/policies/${shippingPolicy.handle}`}
-                  />
-                )}
-                {refundPolicy?.body && (
-                  <ProductDetail
-                    title="Returns"
-                    content={getExcerpt(refundPolicy.body)}
-                    learnMore={`/policies/${refundPolicy.handle}`}
-                  />
-                )}
-                <ProductDetail title="Fit" content="Text to be inserted...." />
+                <ProductDetail
+                  title="Fit"
+                  content={
+                    language === 'EN'
+                      ? 'True to size'
+                      : language === 'ES'
+                      ? 'Fiel a la talla'
+                      : 'Ustreza velikosti'
+                  }
+                />
+                <ProductDetail
+                  title={
+                    language === 'EN'
+                      ? 'Designed for'
+                      : language === 'ES'
+                      ? 'Diseñado para'
+                      : 'Oblikovano za'
+                  }
+                  content={
+                    language === 'EN'
+                      ? 'Pilates, Yoga, Gym, Lounging & on the go'
+                      : language === 'ES'
+                      ? 'Pilates, Yoga, Gimnasio, Tumbona y en movimiento'
+                      : 'Pilates, joga, telovadnica, poležavanje in na poti'
+                  }
+                />
+                <ProductProperties
+                  title={
+                    language === 'EN'
+                      ? 'Properties'
+                      : language === 'ES'
+                      ? 'Propiedades'
+                      : 'Lastnosti'
+                  }
+                  language={language}
+                />
               </div>
             </section>
           </div>
@@ -475,6 +504,43 @@ function ProductDetail({
                 </Link>
               </div>
             )}
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
+  );
+}
+
+function ProductProperties({
+  title,
+  language,
+}: {
+  title: string;
+  language: string;
+}) {
+  return (
+    <Disclosure key={title} as="div" className="grid w-full gap-2">
+      {({open}) => (
+        <>
+          <Disclosure.Button className="text-left">
+            <div className="flex justify-between">
+              <Text size="lead" as="h4">
+                {title}
+              </Text>
+              <IconClose
+                className={clsx(
+                  'transition-transform transform-gpu duration-200',
+                  !open && 'rotate-[45deg]',
+                )}
+              />
+            </div>
+          </Disclosure.Button>
+
+          <Disclosure.Panel className={'pb-4 pt-2 grid gap-2'}>
+            <div className="flex flex-col gap-4">
+              <p>Premium materials</p>
+              <p>Timeless elegance</p>
+            </div>
           </Disclosure.Panel>
         </>
       )}

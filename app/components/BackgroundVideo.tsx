@@ -2,7 +2,7 @@ const BackgroundVideo = () => {
   return (
     <main className="h-screen relative">
       <video
-        src="/videos/about.mp4"
+        src="/videos/hero.mp4"
         className="object-cover w-full h-full hidden md:block"
         autoPlay
         loop
