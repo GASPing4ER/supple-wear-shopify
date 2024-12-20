@@ -23,7 +23,8 @@ export default async function handleRequest(
       'https://www.google-analytics.com',
       'https://www.googletagmanager.com',
       'https://a.klaviyo.com',
-      '*.firebasedatabase.app', // Firebase Realtime Database
+      'https://cdn-cookieyes.com/*',
+      '*.firebasedatabase.app/', // Firebase Realtime Database
       ...(process.env.NODE_ENV !== 'production'
         ? ["'unsafe-eval'", 'http://localhost:*']
         : []),
