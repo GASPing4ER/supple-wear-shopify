@@ -32,8 +32,8 @@ function root({
   return {
     title: shop?.name,
     titleTemplate: 'Supple Wear | %s',
-    description: truncate(shop?.description ?? ''),
-    handle: '@shopify',
+    description: 'Where sport blends with fashion',
+    handle: '@supplewear',
     url,
     robots: {
       noIndex: false,
@@ -45,11 +45,11 @@ function root({
       name: shop.name,
       logo: shop.brand?.logo?.image?.url,
       sameAs: [
-        'https://twitter.com/shopify',
-        'https://facebook.com/shopify',
-        'https://instagram.com/shopify',
-        'https://youtube.com/shopify',
-        'https://tiktok.com/@shopify',
+        'https://twitter.com/supplewear',
+        'https://facebook.com/supplewear',
+        'https://instagram.com/supplewear',
+        'https://youtube.com/supplewear',
+        'https://tiktok.com/@supplewear',
       ],
       url,
       potentialAction: {
@@ -65,7 +65,7 @@ function home(): SeoConfig {
   return {
     title: 'Home',
     titleTemplate: 'Supple Wear | %s',
-    description: 'The best place to buy snowboarding products',
+    description: 'Where sport blends with fashion',
     robots: {
       noIndex: false,
       noFollow: false,
