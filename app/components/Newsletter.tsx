@@ -1,6 +1,6 @@
 'use client';
 
-import {FormEvent} from 'react';
+import type {FormEvent} from 'react';
 
 type NewsletterProps = {
   content: any;
@@ -15,12 +15,8 @@ const Newsletter = ({content}: NewsletterProps) => {
 
   return (
     <div className="md:w-[400px] flex flex-col items-center lg:items-baseline text-center lg:text-left gap-3">
-      <h2 className={`${cormorant.className} text-xl font-bold`}>
-        {content.newsletter.h2}
-      </h2>
-      <p className={`text-sm ${philosopher.className}`}>
-        {content.newsletter.paragraph}
-      </p>
+      <h2 className={`cormorant text-xl font-bold`}>{content.newsletter.h2}</h2>
+      <p className={`text-sm philosopher`}>{content.newsletter.paragraph}</p>
       <form onSubmit={handleSubmit} className="flex flex-col">
         <input
           type="email"
