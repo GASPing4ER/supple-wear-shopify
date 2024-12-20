@@ -260,6 +260,13 @@ function MobileHeader({
 
       <div className="flex items-center justify-end w-full gap-4">
         {/* <AccountLink className="relative flex items-center justify-center w-8 h-8" /> */}
+        <a href="https://www.tiktok.com/@supplewear?_t=8sNa8Wrcc9m&_r=1">
+          <img
+            src="/icons/tiktok.svg"
+            alt="tiktok"
+            className="w-[18px] h-[18px]"
+          />
+        </a>
         <a href="https://www.facebook.com/profile.php?id=61562103220296">
           <Facebook height={18} width={18} />
         </a>
@@ -353,6 +360,13 @@ function DesktopHeader({
           </button>
         </Form> */}
         {/* <AccountLink className="relative flex items-center justify-center w-8 h-8 focus:ring-primary/5" /> */}
+        <a href="https://www.tiktok.com/@supplewear?_t=8sNa8Wrcc9m&_r=1">
+          <img
+            src="/icons/tiktok.svg"
+            alt="tiktok"
+            className="w-[18px] h-[18px]"
+          />
+        </a>
         <a href="https://www.facebook.com/profile.php?id=61562103220296">
           <Facebook height={18} width={18} />
         </a>
