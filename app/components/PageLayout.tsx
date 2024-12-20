@@ -31,6 +31,7 @@ import {useCartFetchers} from '~/hooks/useCartFetchers';
 import type {RootLoader} from '~/root';
 
 import {AfterFooter} from './AfterFooter';
+import Newsletter from './Newsletter';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -67,6 +68,9 @@ export function PageLayout({children, language, layout}: LayoutProps) {
         <main role="main" id="mainContent" className="flex-grow">
           {children}
         </main>
+      </div>
+      <div className="flex flex-col items-center p-6 border-b">
+        <Newsletter language={language} />
       </div>
       {footerMenu && <Footer language={language} menu={footerMenu} />}
       <AfterFooter />

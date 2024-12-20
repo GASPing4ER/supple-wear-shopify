@@ -34,7 +34,7 @@ export default function Page() {
             ? about_page.title.ES
             : about_page.title.SL}
         </h1>
-        <section className="cormorant flex flex-col-reverse xl:flex-row gap-10 w-full xl:h-[600px]">
+        <section className="cormorant flex flex-col xl:flex-row gap-10 w-full xl:h-[600px]">
           <div className="flex-1 flex flex-col gap-4">
             <p>
               {language === 'EN'
@@ -80,20 +80,15 @@ export default function Page() {
             </p>
           </div>
           <div className="flex-1 h-full">
-            <img
-              src="/images/about.webp"
-              alt="about"
-              className="w-full h-[300px] xl:h-full object-cover"
+            <video
+              src="/videos/about.mp4"
+              className="object-cover w-full h-full"
+              autoPlay
+              loop
+              muted
             />
           </div>
         </section>
-        <video
-          src="/videos/about.mp4"
-          className="object-cover w-full h-full"
-          autoPlay
-          loop
-          muted
-        />
         <section>
           <h2 className="philosopher text-2xl mb-4">
             {' '}

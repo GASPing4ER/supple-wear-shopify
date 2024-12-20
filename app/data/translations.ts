@@ -108,3 +108,27 @@ export const about_page = {
     SL: 'Vsestransko in večnamensko: Supple oblačila so vse o preprostosti in vsestranskosti. Ne glede na to, ali jih kombinirate s krili, kavbojkami ali krojenimi hlačami, ti kosi brez težav prehajajo iz studia na ulico, zaradi česar so nepogrešljivi v vsaki garderobi. Zasnovana za aktivno, elegantno žensko, bo naša kolekcija postala vaša izbira za udobje, stil in brezskrbno eleganco.',
   },
 };
+
+export const newsletter = {
+  h2: {
+    EN: 'JOIN THE FAMILY',
+    ES: 'ÚNETE A LA FAMILIA',
+    SL: 'PRIDRUŽITE SE DRUŽINI',
+  },
+  paragraph: {
+    EN: 'Subscribe to get early access to our drops - and exclusive offers such as future archive sales only for subscribers',
+    ES: 'Suscríbete para obtener acceso anticipado a nuestras colecciones y ofertas exclusivas como ventas de archivo futuras solo para suscriptores',
+    SL: 'Naročite se za zgodnji dostop do naših kolekcij in ekskluzivnih ponudb, kot so prihodnje arhivske razprodaje samo za naročnike',
+  },
+  email_placeholder: {
+    EN: 'Your email',
+    ES: 'Tu correo electrónico',
+    SL: 'Vaš e-poštni naslov',
+  },
+  radio_button: {
+    EN: 'Yes, I consent to the privacy policy',
+    ES: 'Sí, acepto la política de privacidad',
+    SL: 'Da, soglašam s politiko zasebnosti',
+  },
+  button: {EN: 'SIGN UP', ES: 'REGÍSTRATE', SL: 'PRIJAVI SE'},
+};

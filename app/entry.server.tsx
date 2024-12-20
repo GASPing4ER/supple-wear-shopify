@@ -23,6 +23,7 @@ export default async function handleRequest(
       'https://www.google-analytics.com',
       'https://www.googletagmanager.com',
       'https://a.klaviyo.com',
+      'https://supple-wear-default-rtdb.europe-west1.firebasedatabase.app',
       ...(process.env.NODE_ENV !== 'production' ? ['http://localhost:*'] : []),
     ],
   });
