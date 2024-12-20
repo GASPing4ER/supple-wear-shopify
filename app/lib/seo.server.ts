@@ -31,7 +31,7 @@ function root({
 }): SeoConfig {
   return {
     title: shop?.name,
-    titleTemplate: '%s | Hydrogen Demo Store',
+    titleTemplate: 'Supple Wear | %s',
     description: truncate(shop?.description ?? ''),
     handle: '@shopify',
     url,
