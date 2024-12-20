@@ -72,7 +72,21 @@ export default function AllProducts() {
   const sortedProducts = [...products.nodes].sort((a, b) => {
     const colorA = a.variants.nodes[0].selectedOptions[0].value;
     const colorB = b.variants.nodes[0].selectedOptions[0].value;
-    return colorA.localeCompare(colorB);
+    const colorComparison = colorA.localeCompare(colorB);
+    if (colorComparison !== 0) {
+      return colorComparison;
+    }
+
+    const getProductType = (title: string) => {
+      if (title.includes('Bodysuit')) return 'bodysuit';
+      if (title.includes('Leggings')) return 'leggings';
+      return ''; // Default to empty string if no match
+    };
+
+    // Secondary sort: By product type inferred from the title
+    const productTypeA = getProductType(a.title);
+    const productTypeB = getProductType(b.title);
+    return productTypeA.localeCompare(productTypeB);
   });
   return (
     <>

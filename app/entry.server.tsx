@@ -35,6 +35,7 @@ export default async function handleRequest(
       'wss://*.firebasedatabase.app', // Firebase WebSocket fallback
       ...(process.env.NODE_ENV !== 'production' ? ['ws://localhost:*'] : []),
     ],
+    styleSrc: ['https://fonts.googleapis.com/*'],
   });
 
   const body = await renderToReadableStream(
