@@ -27,3 +27,24 @@ export const addNewsletterToFirebase = async (email: string) => {
     return error;
   }
 };
+
+export type TInquiryContact = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export const addInquiryToFirebase = async (inquiry: TInquiryContact) => {
+  const usersRef = ref(database, 'contact');
+  const newDataRef = push(usersRef);
+
+  try {
+    set(newDataRef, {
+      name: inquiry.name,
+      email: inquiry.email,
+      message: inquiry.message,
+    });
+  } catch (error) {
+    return error;
+  }
+};
