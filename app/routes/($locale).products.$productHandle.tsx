@@ -617,7 +617,7 @@ function ProductProperties({
               </div>
               <div className="flex gap-2 items-center">
                 <img
-                  src=""
+                  src="/icons/icon5.svg"
                   alt="pilling resistant"
                   className="w-[75px] h-[75px]"
                 />
@@ -630,7 +630,11 @@ function ProductProperties({
                 </p>
               </div>
               <div className="flex gap-2 items-center">
-                <img src="" alt="versatile" className="w-[75px] h-[75px]" />
+                <img
+                  src="/icons/icon6.svg"
+                  alt="versatile"
+                  className="w-[75px] h-[75px]"
+                />
                 <p>
                   {' '}
                   {language === 'EN'
