@@ -142,6 +142,7 @@ function Layout({children}: {children?: React.ReactNode}) {
           id="cookieyes"
           type="text/javascript"
           src="https://cdn-cookieyes.com/client_data/3a1f355d532f6fc593dc110b/script.js"
+          nonce={nonce}
         ></script>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
