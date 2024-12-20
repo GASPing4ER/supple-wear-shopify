@@ -64,7 +64,7 @@ function root({
 function home(): SeoConfig {
   return {
     title: 'Home',
-    titleTemplate: '%s | Hydrogen Demo Store',
+    titleTemplate: 'Supple Wear | %s',
     description: 'The best place to buy snowboarding products',
     robots: {
       noIndex: false,
