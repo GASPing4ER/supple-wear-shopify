@@ -197,25 +197,31 @@ export default function Homepage() {
         </div>
         <div className="flex flex-col sm:flex-row gap-4 sm:h-[75vh] my-4">
           <div className="flex-1">
-            <img
-              src="/images/products/audrey-burgundy.jpg"
-              alt="product"
-              className="h-full w-full object-cover"
-            />
+            <a href="https://supplewear.com/products/audrey-bodysuit-burgundy">
+              <img
+                src="/images/products/audrey-burgundy.jpg"
+                alt="product"
+                className="h-full w-full object-cover"
+              />
+            </a>
           </div>
           <div className="flex-1">
-            <img
-              src="/images/products/brigitte-green.jpg"
-              alt="product"
-              className="h-full w-full object-cover"
-            />
+            <a href="https://supplewear.com/products/briggite-bodysuit-landscape-green">
+              <img
+                src="/images/products/brigitte-green.jpg"
+                alt="product"
+                className="h-full w-full object-cover"
+              />
+            </a>
           </div>
           <div className="flex-1">
-            <img
-              src="/images/products/cyd-beige.jpg"
-              alt="product"
-              className="h-full w-full object-cover"
-            />
+            <a href="https://supplewear.com/products/cyd-bodysuit-beige">
+              <img
+                src="/images/products/cyd-beige.jpg"
+                alt="product"
+                className="h-full w-full object-cover"
+              />
+            </a>
           </div>
         </div>
       </section>
