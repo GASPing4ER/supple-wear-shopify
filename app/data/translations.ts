@@ -132,3 +132,31 @@ export const newsletter = {
   },
   button: {EN: 'SIGN UP', ES: 'REGÍSTRATE', SL: 'PRIJAVI SE'},
 };
+
+export const contact_page = {
+  title: {
+    EN: 'Contact',
+    ES: 'Contact',
+    SL: 'Kontakt',
+  },
+  name_placeholder: {
+    EN: 'Your name',
+    ES: 'Su nombre',
+    SL: 'Vaše ime',
+  },
+  email_placeholder: {
+    EN: 'Email Address',
+    ES: 'Email Address',
+    SL: 'Email naslov',
+  },
+  message_placeholder: {
+    EN: 'Give us a little detail so we can best help your needs',
+    ES: 'Danos un poco de detalle para que podamos ayudar mejor a sus necesidades',
+    SL: 'Navedite nam nekaj podrobnosti, da bomo lahko kar najbolje pomagali vašim potrebam',
+  },
+  cta: {
+    EN: 'SUBMIT FORM',
+    ES: 'ENVIAR FORMULARIO',
+    SL: 'ODDAJTE OBRAZEC',
+  },
+};

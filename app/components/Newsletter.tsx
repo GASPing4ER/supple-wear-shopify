@@ -15,6 +15,7 @@ const Newsletter = ({language}: NewsletterProps) => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission logic
+    setEmail('');
     addNewsletterToFirebase(email);
   };
 

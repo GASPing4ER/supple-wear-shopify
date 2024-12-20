@@ -3,8 +3,13 @@
 import {useState, type ChangeEvent} from 'react';
 
 import {addInquiryToFirebase} from '~/data/actions';
+import {contact_page} from '~/data/translations';
 
-const ContactForm = () => {
+type ContactFormProps = {
+  language: string;
+};
+
+const ContactForm = ({language}: ContactFormProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -49,7 +54,13 @@ const ContactForm = () => {
           type="text"
           id="name"
           name="name"
-          placeholder="Your Name"
+          placeholder={
+            language === 'EN'
+              ? contact_page.name_placeholder.EN
+              : language === 'ES'
+              ? contact_page.name_placeholder.ES
+              : contact_page.name_placeholder.SL
+          }
           className="bg-transparent border-b dark:border-primary border-primary rounded-md pb-4 w-full"
           value={formData.name}
           onChange={handleInputChange}
@@ -59,7 +70,13 @@ const ContactForm = () => {
           type="email"
           id="email"
           name="email"
-          placeholder="Email Address"
+          placeholder={
+            language === 'EN'
+              ? contact_page.email_placeholder.EN
+              : language === 'ES'
+              ? contact_page.email_placeholder.ES
+              : contact_page.email_placeholder.SL
+          }
           className="bg-transparent border-b dark:border-primary border-primary rounded-md pb-4 w-full"
           value={formData.email}
           onChange={handleInputChange}
@@ -69,7 +86,13 @@ const ContactForm = () => {
       <textarea
         id="message"
         name="message"
-        placeholder="Give us a little detail so we can best help your needs!"
+        placeholder={
+          language === 'EN'
+            ? contact_page.message_placeholder.EN
+            : language === 'ES'
+            ? contact_page.message_placeholder.ES
+            : contact_page.message_placeholder.SL
+        }
         className="bg-transparent border-b dark:border-primary border-primary rounded-md min-h-[100px] h-fit pb-4 w-full"
         value={formData.message}
         onChange={handleInputChange}
@@ -80,9 +103,15 @@ const ContactForm = () => {
         disabled={buttonDisabled}
         aria-label="Submit Form"
       >
-        {submitting ? 'SUBMITTING' : 'SUBMIT FORM'}
+        {submitting
+          ? 'SUBMITTING'
+          : language === 'EN'
+          ? contact_page.cta.EN
+          : language === 'ES'
+          ? contact_page.cta.ES
+          : contact_page.cta.SL}
       </button>
-      {message && (
+      {/* {message && (
         <p
           className={`${
             status !== 201 ? 'text-red-500' : 'text-green-500'
@@ -90,7 +119,7 @@ const ContactForm = () => {
         >
           {message}
         </p>
-      )}
+      )} */}
     </form>
   );
 };
