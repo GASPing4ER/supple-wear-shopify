@@ -32,7 +32,7 @@ function root({
   return {
     title: shop?.name,
     titleTemplate: 'Supple Wear | %s',
-    description: 'Where sport blends with fashion',
+    description: 'ballet inspired activewear',
     handle: '@supplewear',
     url,
     robots: {
@@ -65,7 +65,7 @@ function home(): SeoConfig {
   return {
     title: 'Home',
     titleTemplate: 'Supple Wear | %s',
-    description: 'Where sport blends with fashion',
+    description: 'ballet inspired activewear',
     robots: {
       noIndex: false,
       noFollow: false,
