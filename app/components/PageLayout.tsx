@@ -52,7 +52,7 @@ export function PageLayout({children, language, layout}: LayoutProps) {
             Skip to content
           </a>
         </div>
-        <div className="bg-[#F5F5DC] p-4 text-black text-center uppercase">
+        <div className="bg-[#F5F5DC] p-4 text-black text-center uppercase text-xs sm:text-sm md:text-base">
           <p>
             Welcome to the <strong>Supple preorder!</strong> Become a part of
             the Supple family by joining our <strong>first ever drop.</strong>
