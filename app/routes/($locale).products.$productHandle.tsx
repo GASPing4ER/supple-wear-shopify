@@ -232,6 +232,22 @@ export default function Product() {
                       : 'Pilates, joga, telovadnica, poležavanje in na poti'
                   }
                 />
+                <ProductDetail
+                  title={
+                    language === 'EN'
+                      ? 'Care'
+                      : language === 'ES'
+                      ? 'Atención'
+                      : 'Oskrba'
+                  }
+                  content={
+                    language === 'EN'
+                      ? 'Machine wash at 30°C. Do not iron. Do not dry clean. Do not bleach. Do not tumble dry'
+                      : language === 'ES'
+                      ? 'Lavar a máquina a 30°C. No planchar. No limpiar en seco. No usar lejía. No secar en secadora.'
+                      : 'Pranje v pralnem stroju pri 30 °C. Ne likajte. Ne čistite na suhem. Ne belite. Ne sušite v sušilnem stroju'
+                  }
+                />
                 <ProductProperties
                   title={
                     language === 'EN'
@@ -472,7 +488,11 @@ function ProductDetail({
   learnMore?: string;
 }) {
   return (
-    <Disclosure key={title} as="div" className="grid w-full gap-2">
+    <Disclosure
+      key={title}
+      as="div"
+      className="grid w-full gap-2 bg-white text-black border border-black p-3 rounded-md"
+    >
       {({open}) => (
         <>
           <Disclosure.Button className="text-left">
@@ -490,14 +510,11 @@ function ProductDetail({
           </Disclosure.Button>
 
           <Disclosure.Panel className={'pb-4 pt-2 grid gap-2'}>
-            <div
-              className="prose dark:prose-invert"
-              dangerouslySetInnerHTML={{__html: content}}
-            />
+            <div className="t" dangerouslySetInnerHTML={{__html: content}} />
             {learnMore && (
               <div className="">
                 <Link
-                  className="pb-px border-b border-primary/30 text-primary/50"
+                  className="pb-px border-b border-primary text-primary"
                   to={learnMore}
                 >
                   Learn more
@@ -519,7 +536,11 @@ function ProductProperties({
   language: string;
 }) {
   return (
-    <Disclosure key={title} as="div" className="grid w-full gap-2">
+    <Disclosure
+      key={title}
+      as="div"
+      className="grid w-full gap-2 bg-white text-black border border-black p-3 rounded-md"
+    >
       {({open}) => (
         <>
           <Disclosure.Button className="text-left">
@@ -538,8 +559,83 @@ function ProductProperties({
 
           <Disclosure.Panel className={'pb-4 pt-2 grid gap-2'}>
             <div className="flex flex-col gap-4">
-              <p>Premium materials</p>
-              <p>Timeless elegance</p>
+              <div className="flex gap-2 items-center">
+                <img
+                  src="/icons/icon1.svg"
+                  alt="premium materials"
+                  className="w-[75px] h-[75px]"
+                />
+                <p>
+                  {language === 'EN'
+                    ? 'Premium materials'
+                    : language === 'ES'
+                    ? 'Materiales de primera'
+                    : 'Vrhunski materiali'}
+                </p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <img
+                  src="/icons/icon1.svg"
+                  alt="featherweight & soft touch"
+                  className="w-[75px] h-[75px]"
+                />
+                <p>
+                  {language === 'EN'
+                    ? 'Featherweight & Soft Touch'
+                    : language === 'ES'
+                    ? 'Peso pluma y tacto suave'
+                    : 'Teža perja in mehak na dotik'}
+                </p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <img
+                  src="/icons/icon3.svg"
+                  alt=""
+                  className="w-[75px] h-[75px]"
+                />
+                <p>
+                  {language === 'EN'
+                    ? '4-Way Stretch'
+                    : language === 'ES'
+                    ? '4-Way Stretch'
+                    : '4-stranski razteg'}
+                </p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <img src="" alt="breathable" className="w-[75px] h-[75px]" />
+                <p>
+                  {language === 'EN'
+                    ? 'Breathable'
+                    : language === 'ES'
+                    ? 'Transpirable'
+                    : 'Dihajoče'}
+                </p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <img
+                  src=""
+                  alt="pilling resistant"
+                  className="w-[75px] h-[75px]"
+                />
+                <p>
+                  {language === 'EN'
+                    ? 'Pilling resistant'
+                    : language === 'ES'
+                    ? 'Resistente a las bolitas'
+                    : 'Odpornost na piling'}
+                </p>
+              </div>
+              <div className="flex gap-2 items-center">
+                <img src="" alt="versatile" className="w-[75px] h-[75px]" />
+                <p>
+                  {' '}
+                  {language === 'EN'
+                    ? 'Versatile'
+                    : language === 'ES'
+                    ? 'Versátil'
+                    : 'Vsestransko'}
+                </p>
+              </div>
             </div>
           </Disclosure.Panel>
         </>
