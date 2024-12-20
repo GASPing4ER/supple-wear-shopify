@@ -89,7 +89,7 @@ export default function Page() {
             />
           </div>
         </section>
-        <section>
+        {/* <section>
           <h2 className="philosopher text-2xl mb-4">
             {' '}
             {language === 'EN'
@@ -151,7 +151,7 @@ export default function Page() {
               </li>
             </ul>
           </div>
-        </section>
+        </section> */}
       </main>
     </>
   );
