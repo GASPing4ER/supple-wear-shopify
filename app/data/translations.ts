@@ -116,9 +116,9 @@ export const newsletter = {
     SL: 'PRIDRUŽITE SE DRUŽINI',
   },
   paragraph: {
-    EN: 'Subscribe to get early access to our drops - and exclusive offers such as future archive sales only for subscribers',
-    ES: 'Suscríbete para obtener acceso anticipado a nuestras colecciones y ofertas exclusivas como ventas de archivo futuras solo para suscriptores',
-    SL: 'Naročite se za zgodnji dostop do naših kolekcij in ekskluzivnih ponudb, kot so prihodnje arhivske razprodaje samo za naročnike',
+    EN: 'Be the first to receive latest news about our drops, styling tips and events.',
+    ES: 'Sea el primero en recibir las últimas noticias sobre nuestras gotas, consejos de estilismo y eventos.',
+    SL: 'Bodite prvi, ki boste prejeli najnovejše novice o naših padcih, nasvetih za oblikovanje in dogodkih.',
   },
   email_placeholder: {
     EN: 'Your email',
