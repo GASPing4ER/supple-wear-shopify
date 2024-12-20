@@ -74,7 +74,6 @@ export default function AllProducts() {
     const colorB = b.variants.nodes[0].selectedOptions[0].value;
     return colorA.localeCompare(colorB);
   });
-  console.log(products);
   return (
     <>
       {/* <PageHeader heading="All Products" variant="allCollections" /> */}
