@@ -114,7 +114,7 @@ shop-pay-button {
     h6 {
       @apply font-sans text-primary;
     }
-    @apply prose mx-auto mb-12 grid justify-center font-serif text-primary;
+    @apply max-w-[80%] mx-auto mb-12 grid justify-center font-serif text-primary;
     p,
     ul,
     li {

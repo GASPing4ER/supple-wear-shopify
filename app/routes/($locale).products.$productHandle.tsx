@@ -491,7 +491,7 @@ function ProductDetail({
     <Disclosure
       key={title}
       as="div"
-      className="grid w-full gap-2 bg-white text-black border border-black p-3 rounded-md"
+      className="grid w-full gap-2 bg-white/80 text-black border border-black p-3 rounded-md"
     >
       {({open}) => (
         <>
@@ -539,7 +539,7 @@ function ProductProperties({
     <Disclosure
       key={title}
       as="div"
-      className="grid w-full gap-2 bg-white text-black border border-black p-3 rounded-md"
+      className="grid w-full gap-2 bg-white/80 text-black border border-black p-3 rounded-md"
     >
       {({open}) => (
         <>

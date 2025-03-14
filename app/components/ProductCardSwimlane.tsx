@@ -65,6 +65,30 @@ export function ProductCardSwimlane({
               />
             )}
           </div>
+          <div className="flex justify-between">
+            <div>
+              <Text
+                className="w-full overflow-hidden whitespace-nowrap text-ellipsis philosopher"
+                as="h3"
+              >
+                {product.title}
+              </Text>
+              {/* <h4 className="text-sm">
+                {product.variants.nodes[0].selectedOptions[0].value}
+              </h4> */}
+            </div>
+            <div className="flex gap-4">
+              <Text className="flex gap-4">
+                <Money withoutTrailingZeros data={price!} />
+                {isDiscounted(price as MoneyV2, compareAtPrice as MoneyV2) && (
+                  <CompareAtPrice
+                    className={'opacity-50'}
+                    data={compareAtPrice as MoneyV2}
+                  />
+                )}
+              </Text>
+            </div>
+          </div>
         </div>
       </Link>
       {quickAdd && firstVariant.availableForSale && (

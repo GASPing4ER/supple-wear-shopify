@@ -10,6 +10,7 @@ import {
   getPaginationVariables,
   getSeoMeta,
 } from '@shopify/hydrogen';
+import {useState} from 'react';
 
 import {PageHeader, Section} from '~/components/Text';
 import {ProductCard} from '~/components/ProductCard';
@@ -18,6 +19,7 @@ import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {getImageLoadingPriority} from '~/lib/const';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
+import CategoryFilter from '~/components/CategoryFilter';
 
 const PAGE_BY = 18;
 
@@ -69,7 +71,10 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
 
 export default function AllProducts() {
   const {products} = useLoaderData<typeof loader>();
-  const sortedProducts = [...products.nodes].sort((a, b) => {
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const categories = ['leggings', 'bodysuit'];
+
+  let sortedProducts = [...products.nodes].sort((a, b) => {
     const colorA = a.variants.nodes[0].selectedOptions[0].value;
     const colorB = b.variants.nodes[0].selectedOptions[0].value;
     const colorComparison = colorA.localeCompare(colorB);
@@ -88,10 +93,20 @@ export default function AllProducts() {
     const productTypeB = getProductType(b.title);
     return productTypeA.localeCompare(productTypeB);
   });
+
+  if (selectedCategory !== 'all') {
+    sortedProducts = sortedProducts.filter((product) =>
+      product.title.toLowerCase().includes(selectedCategory),
+    );
+  }
   return (
     <>
       {/* <PageHeader heading="All Products" variant="allCollections" /> */}
       <Section>
+        <CategoryFilter
+          categories={categories}
+          onFilter={setSelectedCategory}
+        />
         <Pagination connection={products}>
           {({nodes, isLoading, NextLink, PreviousLink}) => {
             const itemsMarkup = sortedProducts.map((product, i) => (
@@ -125,25 +140,25 @@ export default function AllProducts() {
 }
 
 const ALL_PRODUCTS_QUERY = `#graphql
-  query AllProducts(
-    $country: CountryCode
-    $language: LanguageCode
-    $first: Int
-    $last: Int
-    $startCursor: String
-    $endCursor: String
-  ) @inContext(country: $country, language: $language) {
-    products(first: $first, last: $last, before: $startCursor, after: $endCursor) {
-      nodes {
-        ...ProductCard
-      }
-      pageInfo {
-        hasPreviousPage
-        hasNextPage
-        startCursor
-        endCursor
-      }
+query AllProducts(
+  $country: CountryCode
+  $language: LanguageCode
+  $first: Int
+  $last: Int
+  $startCursor: String
+  $endCursor: String
+) @inContext(country: $country, language: $language) {
+  products(first: $first, last: $last, before: $startCursor, after: $endCursor) {
+    nodes {
+      ...ProductCard
+    }
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
     }
   }
+}
   ${PRODUCT_CARD_FRAGMENT}
 ` as const;

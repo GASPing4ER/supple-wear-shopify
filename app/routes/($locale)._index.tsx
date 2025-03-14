@@ -192,6 +192,16 @@ export default function Homepage() {
                   ? collection_section.cyd.ES
                   : collection_section.cyd.SL}
               </p>
+              <a
+                href="/collections/essentia"
+                className="bg-primary w-fit text-contrast px-6 py-2 rounded-2xl uppercase"
+              >
+                {language === 'EN'
+                  ? collection_section.button.EN
+                  : language === 'ES'
+                  ? collection_section.button.ES
+                  : collection_section.button.SL}
+              </a>
             </div>
           </div>
         </div>

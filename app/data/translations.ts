@@ -29,6 +29,11 @@ export const collection_section = {
     ES: 'CYD: Un diseño sin mangas con un detalle de cremallera, inspirado en la audaz belleza de Cyd Charisse: atrevido, pero elegantemente sin esfuerzo.',
     SL: 'CYD: Brezrokavni dizajn z zadrgo, ki izraža drzno lepoto Cyd Charisse - drzen, a brez napora eleganten.',
   },
+  button: {
+    EN: ' Explore Essentia',
+    ES: ' Explorar Essentia',
+    SL: ' Raziščite Essentia',
+  },
 };
 
 export const about_page = {

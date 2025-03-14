@@ -78,7 +78,7 @@ export default function Article() {
         )}
         <div
           dangerouslySetInnerHTML={{__html: contentHtml}}
-          className="article"
+          className="article w-full"
         />
       </Section>
     </>
