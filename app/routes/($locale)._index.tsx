@@ -143,6 +143,7 @@ export default function Homepage() {
               autoPlay
               loop
               muted
+              playsInline
             >
               <source src="/videos/supple.mp4" type="video/mp4" />
             </video>
