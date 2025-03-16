@@ -47,6 +47,11 @@ export const utilities = {
     ES: 'Ver todos los productos',
     SL: 'Oglejte si vse izdelke',
   },
+  see_supple_button: {
+    EN: 'See more of Supple:',
+    ES: 'Ver más de Supple:',
+    SL: 'Oglejte si več izdelkov od Supple:',
+  },
 };
 
 export const about_page = {

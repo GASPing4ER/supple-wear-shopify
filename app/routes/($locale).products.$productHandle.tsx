@@ -35,6 +35,7 @@ import {seoPayload} from '~/lib/seo.server';
 import type {Storefront} from '~/lib/type';
 import {routeHeaders} from '~/data/cache';
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
+import {utilities} from '~/data/translations';
 
 export const headers = routeHeaders;
 
@@ -264,7 +265,14 @@ export default function Product() {
         </div>
       </Section>
       <Section>
-        <h2 className="philosopher text-2xl">See more of Supple:</h2>
+        <h2 className="philosopher text-2xl">
+          {' '}
+          {language === 'EN'
+            ? utilities.see_supple_button.EN
+            : language === 'ES'
+            ? utilities.see_supple_button.ES
+            : utilities.see_supple_button.SL}
+        </h2>
       </Section>
       <Suspense fallback={<Skeleton className="h-32" />}>
         <Await

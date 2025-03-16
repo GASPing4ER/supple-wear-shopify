@@ -137,7 +137,9 @@ export default function Homepage() {
       )}
       <div className="p-10 flex justify-center">
         <a
-          href="/collections/essentia"
+          href={`${
+            language === 'EN' ? '' : language === 'ES' ? '/es-es' : '/sl-si'
+          }/products`}
           className="bg-primary w-fit text-contrast px-6 py-2 rounded-2xl uppercase"
         >
           {language === 'EN'
@@ -215,7 +217,13 @@ export default function Homepage() {
                   : collection_section.leggings.SL}
               </p>
               <a
-                href="/collections/essentia"
+                href={`${
+                  language === 'EN'
+                    ? ''
+                    : language === 'ES'
+                    ? '/es-es'
+                    : '/sl-si'
+                }/collections/essentia`}
                 className="bg-primary w-fit text-contrast px-6 py-2 rounded-2xl uppercase"
               >
                 {language === 'EN'
