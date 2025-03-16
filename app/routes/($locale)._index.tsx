@@ -8,7 +8,7 @@ import {Await, useLoaderData} from '@remix-run/react';
 import {getSeoMeta} from '@shopify/hydrogen';
 
 import {FeaturedCollections} from '~/components/FeaturedCollections';
-import {collection_section} from '~/data/translations';
+import {collection_section, utilities} from '~/data/translations';
 import {ProductSwimlane} from '~/components/ProductSwimlane';
 import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {seoPayload} from '~/lib/seo.server';
@@ -135,6 +135,18 @@ export default function Homepage() {
           </Await>
         </Suspense>
       )}
+      <div className="p-10 flex justify-center">
+        <a
+          href="/collections/essentia"
+          className="bg-primary w-fit text-contrast px-6 py-2 rounded-2xl uppercase"
+        >
+          {language === 'EN'
+            ? utilities.see_products_button.EN
+            : language === 'ES'
+            ? utilities.see_products_button.ES
+            : utilities.see_products_button.SL}
+        </a>
+      </div>
       <section className="w-full">
         <div className="flex flex-col xl:flex-row xl:h-[70vh] w-full mb-4">
           <div className="flex-1 h-full relative">

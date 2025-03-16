@@ -263,6 +263,9 @@ export default function Product() {
           </div>
         </div>
       </Section>
+      <Section>
+        <h2 className="philosopher text-2xl">See more of Supple:</h2>
+      </Section>
       <Suspense fallback={<Skeleton className="h-32" />}>
         <Await
           errorElement="There was a problem loading related products"

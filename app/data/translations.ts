@@ -41,6 +41,14 @@ export const collection_section = {
   },
 };
 
+export const utilities = {
+  see_products_button: {
+    EN: 'See all products',
+    ES: 'Ver todos los productos',
+    SL: 'Oglejte si vse izdelke',
+  },
+};
+
 export const about_page = {
   title: {
     EN: 'ABOUT',
