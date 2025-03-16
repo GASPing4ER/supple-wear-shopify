@@ -137,7 +137,7 @@ export default function Homepage() {
       )}
       <section className="w-full">
         <div className="flex flex-col xl:flex-row xl:h-[70vh] w-full mb-4">
-          <div className="flex-1 h-full">
+          <div className="flex-1 h-full relative">
             <video
               className="object-cover w-full h-full hidden xl:block"
               autoPlay
