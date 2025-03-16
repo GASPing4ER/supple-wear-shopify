@@ -2,7 +2,7 @@ export const collection_section = {
   description: {
     EN: 'Welcome to the first drop of Supple! Our Essentia collection is a blend of elegance and comfort. These pieces are designed to serve as timeless additions to your wardrobe.',
     ES: '¡Bienvenido a la primera gota de Supple! Nuestra colección Essentia es una mezcla de elegancia y comodidad. Estas piezas están diseñadas para servir como adiciones atemporales a su guardarropa.',
-    SL: 'Dobrodošli v prvi kapljici Supple! Naša kolekcija Essentia je mešanica elegance in udobja. Ti kosi so zasnovani tako, da služijo kot brezčasni dodatki k vaši garderobi.',
+    SL: 'Dobrodošli v prvi Supple kolekciji - Essentia! V Esentii najdemo kose, ki jih lahko uporabljamo posamično, jih kombiniramo med seboj ali s kosi iz svojih garderob.  Uporabili smo najboljše materiale iz Italije in zagotovili udobje.',
   },
   title2: {
     EN: 'Iconic Inspiration',
@@ -12,22 +12,27 @@ export const collection_section = {
   description2: {
     EN: 'Each bodysuit in this collection is named after a legendary beauty — women who defined elegance, grace, and timeless style. From the silver screen to the ballet studio, these icons left a mark on fashion and culture, and we honor them with our designs:',
     ES: 'Cada body de esta colección lleva el nombre de una belleza legendaria: mujeres que definieron la elegancia, la gracia y el estilo atemporal. Desde la gran pantalla hasta el estudio de ballet, estos iconos dejaron huella en la moda y la cultura, y nosotros les rendimos homenaje con nuestros diseños:',
-    SL: 'Vsak bodi v tej kolekciji je poimenovan po legendarni lepotici - ženski, ki je definirala eleganco, gracioznost in brezčasen slog. Te ikone so zaznamovale modo in kulturo, od srebrnega platna do baletnega studia, mi pa smo jih počastili z našimi modeli:',
+    SL: 'Vsak bodi v tej kolekciji je poimenovan po legendarni ženski - ženski, ki je definirala eleganco, gracioznost in brezčasen slog. Te ikone so zaznamovale modo in kulturo. Vsem trem pa je skupno, da so bile plesalke ter vrhunske igralke zlatih časov. Zato smo jih mi počastili z našimi modeli bodijev:',
   },
   audrey: {
     EN: 'AUDREY: A sleek long-sleeve bodysuit, just like Audrey Hepburn — always refined, always chic.',
     ES: 'AUDREY: Un elegante body de manga larga, al igual que Audrey Hepburn: siempre refinado, siempre elegante.',
-    SL: 'AUDREY: Eleganten bodi z dolgimi rokavi, tako kot Audrey Hepburn - vedno prefinjen, vedno šik.',
+    SL: 'AUDREY: Eleganten bodi z dolgimi rokavi, višjim ovratnikom - vedno prefinjen, vedno šik. Inspiracija zanj je bila ikonična Audrey Hepburn.',
   },
   brigitte: {
     EN: 'BRIGITTE: A stunning long-sleeve bodysuit with a crisscross back, inspired by Brigitte Bardot’s sensual yet sophisticated style.',
     ES: 'BRIGITTE: Un impresionante body de manga larga con espalda cruzada, inspirado en el estilo sensual pero sofisticado de Brigitte Bardot.',
-    SL: 'BRIGITTE: Osupljiv bodi z dolgimi rokavi in prekrižanim hrbtnim delom, navdihnjen z zapeljivim, a prefinjenim slogom Brigitte Bardot.',
+    SL: 'BRIGITTE: Osupljiv bodi z dolgimi rokavi in odprtim hrbtnim delom, navdihnjen z zapeljivim, a prefinjenim slogom Brigitte Bardot.',
   },
   cyd: {
     EN: 'CYD: A sleeveless design with a zip detail, channeling the bold beauty of Cyd Charisse — daring, yet effortlessly elegant.',
     ES: 'CYD: Un diseño sin mangas con un detalle de cremallera, inspirado en la audaz belleza de Cyd Charisse: atrevido, pero elegantemente sin esfuerzo.',
-    SL: 'CYD: Brezrokavni dizajn z zadrgo, ki izraža drzno lepoto Cyd Charisse - drzen, a brez napora eleganten.',
+    SL: 'CYD: Bodi z zadrgo, ki izraža drzno lepoto Cyd Charisse.',
+  },
+  leggings: {
+    EN: 'The collection also includes two leggings with a straight cut at the waist or a V-cut.',
+    ES: 'La colección también incluye dos leggings con corte recto en la cintura o en V.',
+    SL: 'V kolekciji najdete tudi dva modela legic in sicer z ravnim rezom pri pasu ali rezom na V.',
   },
   button: {
     EN: ' Explore Essentia',
@@ -45,7 +50,7 @@ export const about_page = {
   about: {
     EN: 'SUPPLE is a premium ballet-inspired activewear brand created for a modern woman wanting to feel comfortable during her workout but also be fashionable in post-workout activities like having brunch with her friends. Sourced from Italy and manufactured in Slovenia (Europe), Supple pieces are created with your comfort, elegance, and sustainability in mind.',
     ES: 'SUPPLE es una marca premium de ropa deportiva inspirada en el ballet, creada para una mujer moderna que quiere sentirse cómoda durante su entrenamiento pero también estar a la moda en actividades posteriores como un brunch con sus amigas. Procedente de Italia y fabricada en Eslovenia (Europa), las piezas de Supple se crean pensando en tu comodidad, elegancia y sostenibilidad.',
-    SL: 'SUPPLE je vrhunska znamka športnih oblačil, navdihnjena z baletom, ustvarjena za sodobno žensko, ki želi biti med vadbo udobna, hkrati pa modna pri dejavnostih po vadbi, kot je kosilo s prijateljicami. Supple kosi, izdelani v Italiji in proizvedeni v Sloveniji (Evropa), so ustvarjeni z mislijo na vašo udobnost, eleganco in trajnost.',
+    SL: 'SUPPLE je znamka baletno inspiriranih športnih oblačil. Ideja Supple-a je vnesti eleganco v šport. Zakaj ne bi izgledali modno in elegantno tudi med vadbo? Material, ki ga uporabljamo pri Supple je uvožen iz Italije, izdelki pa so narejeni v Sloveniji. Materiali so resnično kakovostni in udobni.',
   },
   founder_story: {
     EN: 'SUPPLE was founded because our founder Monika wanted to feel more elegant than sporty during her workouts and when she looked at her closet, she couldn’t find anything that would be a good fit. She tried to find perfect activewear that she would feel comfortable and elegant in, however her sports bras were too sporty and revealing and her ballet leotards, which are so beautiful, just don’t work for anything other than ballet training. Since nothing like that existed, she decided to make it herself.',
@@ -65,12 +70,12 @@ export const about_page = {
   supple_vision: {
     EN: 'Supple blurs the line between ballet elegance, fashion uniqueness, and sports comfort. It allows you to be chic - no matter what you do. Whether you’re practicing pilates, yoga, dancing, or simply strolling through the park with your dog, Supple is made to move with you, from early mornings to late nights.',
     ES: 'Supple borra la línea entre la elegancia del ballet, la singularidad de la moda y la comodidad del deporte. Te permite ser elegante, sin importar lo que hagas. Ya sea que practiques pilates, yoga, bailes o simplemente pasees por el parque con tu perro, Supple está diseñado para moverse contigo, desde las primeras horas de la mañana hasta altas horas de la noche.',
-    SL: 'Supple briše mejo med baletno eleganco, edinstvenostjo mode in športnim udobjem. Omogoča vam, da ste šik - ne glede na to, kaj počnete. Ne glede na to, ali vadite pilates, jogo, plešete ali preprosto sprehajate psa po parku, je Supple ustvarjen, da se premika z vami, od zgodnjih jutranjih ur do poznega večera.',
+    SL: 'Supple briše mejo med baletno eleganco, edinstvenostjo mode in športnim udobjem. Omogoča vam, da ste urejeni - ne glede na to, kaj počnete. V kolikor vadite pilates, jogo, plešete ali preprosto sprehajate psa, je Supple ustvarjen, da se premika z vami.',
   },
   call_to_action: {
     EN: 'Sounds like your type of thing? Welcome to team Supple! Let’s plié, roll up, squat, child pose, and brunch together.',
     ES: '¿Te suena a tu estilo? ¡Bienvenido al equipo Supple! Vamos a plié, roll up, squat, child pose y brunch juntos.',
-    SL: 'Zveni kot nekaj za vas? Dobrodošli v ekipi Supple! Plié, roll up, squat, child pose in skupaj na brunch.',
+    SL: 'Zveni kot nekaj primernega za vas? Dobrodošli v ekipi Supple! Plié, roll up, squat, child pose and brunch with us.',
   },
   why_choose_supple: {
     EN: 'WHY CHOOSE SUPPLE?',
@@ -118,12 +123,12 @@ export const newsletter = {
   h2: {
     EN: 'JOIN THE FAMILY',
     ES: 'ÚNETE A LA FAMILIA',
-    SL: 'PRIDRUŽITE SE DRUŽINI',
+    SL: 'POSTANITE DEL DRUŽINE',
   },
   paragraph: {
     EN: 'Be the first to receive latest news about our drops, styling tips and events.',
     ES: 'Sea el primero en recibir las últimas noticias sobre nuestras gotas, consejos de estilismo y eventos.',
-    SL: 'Bodite prvi, ki boste prejeli najnovejše novice o naših padcih, nasvetih za oblikovanje in dogodkih.',
+    SL: 'Bodite prvi, ki prejmete novice o novih kolekcijah, vadbah in dogodkih.',
   },
   email_placeholder: {
     EN: 'Your email',

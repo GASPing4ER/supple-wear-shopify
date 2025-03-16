@@ -139,12 +139,13 @@ export default function Homepage() {
         <div className="flex flex-col xl:flex-row xl:h-[70vh] w-full mb-4">
           <div className="flex-1 h-full">
             <video
-              src="/videos/supple.mp4"
               className="object-cover w-full h-full hidden xl:block"
               autoPlay
               loop
               muted
-            />
+            >
+              <source src="/videos/supple.mp4" type="video/mp4" />
+            </video>
           </div>
           <div className="flex-1 h-full flex">
             <div className="flex flex-col justify-center gap-4 p-8">
@@ -191,6 +192,14 @@ export default function Homepage() {
                   : language === 'ES'
                   ? collection_section.cyd.ES
                   : collection_section.cyd.SL}
+              </p>
+              <p className="cormorant text-lg">
+                {' '}
+                {language === 'EN'
+                  ? collection_section.leggings.EN
+                  : language === 'ES'
+                  ? collection_section.leggings.ES
+                  : collection_section.leggings.SL}
               </p>
               <a
                 href="/collections/essentia"

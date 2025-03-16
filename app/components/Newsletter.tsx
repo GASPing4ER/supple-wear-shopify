@@ -32,14 +32,14 @@ const Newsletter = ({language}: NewsletterProps) => {
 
   return (
     <div className="md:w-[400px] flex flex-col items-center text-center gap-3 dark:text-white text-primary">
-      <h2 className={`cormorant text-xl font-bold`}>
+      <h2 className={`philosopher text-xl font-bold`}>
         {language === 'EN'
           ? newsletter.h2.EN
           : language === 'ES'
           ? newsletter.h2.ES
           : newsletter.h2.SL}
       </h2>
-      <p className={`text-sm philosopher`}>
+      <p className={`cormorant`}>
         {' '}
         {language === 'EN'
           ? newsletter.paragraph.EN
