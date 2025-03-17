@@ -151,6 +151,11 @@ function Layout({children}: {children?: React.ReactNode}) {
         <Links />
       </head>
       <body>
+        <script
+          id="cookieyes"
+          type="text/javascript"
+          src="https://cdn-cookieyes.com/client_data/3a1f355d532f6fc593dc110b/script.js"
+        ></script>
         <div className="klaviyo-form-WBUUxk"></div>
         {data ? (
           <Analytics.Provider

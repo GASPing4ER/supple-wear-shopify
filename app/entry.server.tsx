@@ -22,8 +22,8 @@ export default async function handleRequest(
       'https://shopify.com',
       'https://www.google-analytics.com',
       'https://www.googletagmanager.com',
-      // 'https://cdn-cookieyes.com',
-      // 'https://cdn-cookieyes.com/client_data/*',
+      'https://cdn-cookieyes.com',
+      'https://cdn-cookieyes.com/client_data/*',
       '*.firebasedatabase.app/', // Firebase Realtime Database
       ...(process.env.NODE_ENV !== 'production'
         ? ["'unsafe-eval'", 'http://localhost:*']
@@ -36,7 +36,15 @@ export default async function handleRequest(
       'wss://*.firebasedatabase.app', // Firebase WebSocket fallback
       ...(process.env.NODE_ENV !== 'production' ? ['ws://localhost:*'] : []),
     ],
-    styleSrc: ['https://fonts.googleapis.com/*'],
+    styleSrc: [
+      "'self'",
+      'https://fonts.googleapis.com',
+      "'unsafe-inline'", // Only add this if you have inline styles
+    ],
+    fontSrc: [
+      "'self'",
+      'https://fonts.gstatic.com', // Allow fonts from Google Fonts
+    ],
   });
 
   const body = await renderToReadableStream(

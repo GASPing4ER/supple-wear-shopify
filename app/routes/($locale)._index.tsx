@@ -114,7 +114,7 @@ export default function Homepage() {
   return (
     <>
       <BackgroundVideo />
-      <Section className="text-center uppercase text-lg lg:text-2xl">
+      <Section className="text-center uppercase text-lg lg:text-2xl philosopher">
         <h2>Let’s plié, roll up, squat, child pose, and brunch together.</h2>
       </Section>
       {featuredProducts && (
