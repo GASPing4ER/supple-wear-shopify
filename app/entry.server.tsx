@@ -22,18 +22,23 @@ export default async function handleRequest(
       'https://shopify.com',
       'https://www.google-analytics.com',
       'https://www.googletagmanager.com',
-      'https://cdn-cookieyes.com',
-      'https://cdn-cookieyes.com/client_data/*',
-      '*.firebasedatabase.app/', // Firebase Realtime Database
+      'https://cdn-cookieyes.com', // Allow cookieyes scripts
+      'https://cdn-cookieyes.com/client_data/*', // Allow cookieyes client data
+      '*.firebasedatabase.app/',
       ...(process.env.NODE_ENV !== 'production'
         ? ["'unsafe-eval'", 'http://localhost:*']
         : []),
     ],
     connectSrc: [
       "'self'",
-      '*.firebasedatabase.app', // Firebase API
-      '*.firebaseio.com', // Firebase WebSocket
-      'wss://*.firebasedatabase.app', // Firebase WebSocket fallback
+      '*.firebasedatabase.app',
+      '*.firebaseio.com',
+      'wss://*.firebasedatabase.app',
+      'https://cdn-cookieyes.com', // Allow cookieyes connections
+      'https://log.cookieyes.com', // Allow cookieyes logging
+      'https://monorail-edge.shopifysvc.com',
+      'https://supple-wear-4923c5a88e38c270f935.o2.myshopify.dev',
+      'https://lautus-stationery.myshopify.com',
       ...(process.env.NODE_ENV !== 'production' ? ['ws://localhost:*'] : []),
     ],
     styleSrc: [
