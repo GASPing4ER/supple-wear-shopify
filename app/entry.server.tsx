@@ -50,6 +50,11 @@ export default async function handleRequest(
       "'self'",
       'https://fonts.gstatic.com', // Allow fonts from Google Fonts
     ],
+    imgSrc: [
+      "'self'",
+      'https://cdn-cookieyes.com', // Allow images from cookieyes
+      'data:', // Allow data URIs for inline images
+    ],
   });
 
   const body = await renderToReadableStream(
