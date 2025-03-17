@@ -15,6 +15,7 @@ import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
 import BackgroundVideo from '~/components/BackgroundVideo';
 import {AboutSection} from '~/components/AboutSection';
+import {Section} from '~/components/Text';
 
 export const headers = routeHeaders;
 
@@ -113,6 +114,9 @@ export default function Homepage() {
   return (
     <>
       <BackgroundVideo />
+      <Section className="text-center uppercase text-2xl">
+        <h2>Let’s plié, roll up, squat, child pose, and brunch together.</h2>
+      </Section>
       {featuredProducts && (
         <Suspense>
           <Await resolve={featuredProducts}>
