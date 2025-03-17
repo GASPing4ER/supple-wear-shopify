@@ -51,7 +51,8 @@ export default async function handleRequest(
       'https://fonts.gstatic.com', // Allow fonts from Google Fonts
     ],
     imgSrc: [
-      "'self'",
+      "'self'", // Allow images from your own domain
+      'https://cdn.shopify.com', // Allow images from Shopify's CDN
       'https://cdn-cookieyes.com', // Allow images from cookieyes
       'data:', // Allow data URIs for inline images
     ],
