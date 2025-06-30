@@ -52,7 +52,7 @@ export function CountrySelector({language}: {language: string}) {
   return (
     <section
       ref={observerRef}
-      className="grid gap-4 h-auto"
+      className="grid gap-4 h-auto relative z-30"
       onMouseLeave={closeDropdown}
     >
       <Heading size="lead" className="cursor-default" as="h3">
@@ -60,13 +60,13 @@ export function CountrySelector({language}: {language: string}) {
       </Heading>
       <div className="relative">
         <details
-          className="absolute w-full border rounded border-contrast/30 open:round-b-none overflow-clip"
+          className="relative w-full border border-contrast/30 rounded overflow-visible open:rounded-b-none"
           ref={closeRef}
         >
-          <summary className="flex items-center justify-between w-full px-4 py-3 cursor-pointer">
+          <summary className="flex items-center justify-between w-full px-4 py-3 cursor-pointer list-none">
             {selectedLocale.label}
           </summary>
-          <div className="w-full overflow-auto border-t border-contrast/30 bg-contrast/30 max-h-36">
+          <div className="absolute top-full left-0 w-full max-h-60 overflow-auto border-t border-contrast/30 bg-contrast/90 backdrop-blur-lg z-50 rounded-b">
             {countries &&
               Object.keys(countries).map((countryPath) => {
                 const countryLocale = countries[countryPath];
