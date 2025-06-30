@@ -25,7 +25,7 @@ function loadDeferredData({context}: LoaderFunctionArgs) {
 export default function Page() {
   const {language} = useLoaderData<typeof loader>();
   return (
-    <div className="p-6 pt-24 sm:p-24 w-full dark:bg-contrast bg-contrast dark:text-primary text-primary">
+    <div className="p-6 pt-24 sm:p-24 w-full bg-contrast text-primary">
       <div className="relative w-full flex flex-col items-center text-center max-w-[600px] mx-auto">
         <h1 className={`cormorant text-5xl pt-10 pb-16 md:pb-24`}>
           {language === 'EN'

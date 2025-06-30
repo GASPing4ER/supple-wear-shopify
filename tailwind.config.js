@@ -55,7 +55,7 @@ export default {
       },
       boxShadow: {
         border: 'inset 0px 0px 0px 1px rgb(var(--color-primary) / 0.08)',
-        darkHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.4)',
+        // darkHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.4)',
         lightHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.05)',
       },
     },

@@ -31,7 +31,7 @@ const Newsletter = ({language}: NewsletterProps) => {
   };
 
   return (
-    <div className="md:w-[400px] flex flex-col items-center text-center gap-3 dark:text-white text-primary">
+    <div className="md:w-[400px] flex flex-col items-center text-center gap-3 text-primary">
       <h2 className={`philosopher text-xl font-bold`}>
         {language === 'EN'
           ? newsletter.h2.EN
@@ -63,7 +63,7 @@ const Newsletter = ({language}: NewsletterProps) => {
                   ? newsletter.email_placeholder.ES
                   : newsletter.email_placeholder.SL
               }
-              className="border-0 bg-transparent border-b-[1px] rounded-none dark:border-white placeholder:text-sm dark:placeholder:text-white pl-0 pb-2"
+              className="border-0 bg-transparent border-b-[1px] rounded-none placeholder:text-sm pl-0 pb-2"
             />
             {/* <div className="flex gap-2 mt-4">
               <input
@@ -79,7 +79,7 @@ const Newsletter = ({language}: NewsletterProps) => {
             </div>{' '} */}
             <button
               type="submit"
-              className="mt-4 px-4 py-2 dark:bg-white bg-black dark:text-black text-white text-xs"
+              className="mt-4 px-4 py-2 bg-black text-white text-xs"
               aria-label="Submit"
             >
               {language === 'EN'

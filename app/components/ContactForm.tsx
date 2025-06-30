@@ -54,7 +54,7 @@ const ContactForm = ({language}: ContactFormProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full flex flex-col gap-10 items-center text-sm dark:text-primary text-contrast"
+      className="w-full flex flex-col gap-10 items-center text-sm text-contrast"
     >
       <div className="flex w-full gap-8">
         <input
@@ -68,7 +68,7 @@ const ContactForm = ({language}: ContactFormProps) => {
               ? contact_page.name_placeholder.ES
               : contact_page.name_placeholder.SL
           }
-          className="bg-transparent border-b dark:border-primary border-primary rounded-md pb-4 w-full"
+          className="bg-transparent border-b border-primary rounded-md pb-4 w-full"
           value={formData.name}
           onChange={handleInputChange}
           required
@@ -84,7 +84,7 @@ const ContactForm = ({language}: ContactFormProps) => {
               ? contact_page.email_placeholder.ES
               : contact_page.email_placeholder.SL
           }
-          className="bg-transparent border-b dark:border-primary border-primary rounded-md pb-4 w-full"
+          className="bg-transparent border-b border-primary rounded-md pb-4 w-full"
           value={formData.email}
           onChange={handleInputChange}
           required
@@ -100,13 +100,13 @@ const ContactForm = ({language}: ContactFormProps) => {
             ? contact_page.message_placeholder.ES
             : contact_page.message_placeholder.SL
         }
-        className="bg-transparent border-b dark:border-primary border-primary rounded-md min-h-[100px] h-fit pb-4 w-full"
+        className="bg-transparent border-b border-primary rounded-md min-h-[100px] h-fit pb-4 w-full"
         value={formData.message}
         onChange={handleInputChange}
       />
       <button
         type="submit"
-        className={`cormorant dark:bg-primary bg-primary dark:text-contrast text-contrast px-8 py-2 disabled:opacity-80`}
+        className={`cormorant bg-primary text-contrast px-8 py-2 disabled:opacity-80`}
         disabled={isSubmitted}
         aria-label="Submit Form"
       >

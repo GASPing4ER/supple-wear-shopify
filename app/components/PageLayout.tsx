@@ -209,9 +209,7 @@ function MobileHeader({
     <header
       role="banner"
       className={`${
-        isHome
-          ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-          : 'bg-contrast/80 text-primary'
+        isHome ? 'bg-primary/80 text-contrast' : 'bg-contrast/80 text-primary'
       } flex lg:hidden items-center h-nav sticky backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-4 px-4 md:px-8`}
     >
       <div className="flex items-center justify-start w-full gap-4">
@@ -296,9 +294,7 @@ function DesktopHeader({
     <header
       role="banner"
       className={`relative ${
-        isHome
-          ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
-          : 'bg-contrast/80 text-primary'
+        isHome ? 'bg-primary/80 text-contrast' : 'bg-contrast/80 text-primary'
       } ${
         !isHome && y > 50 && ' shadow-lightHeader'
       } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`}
@@ -447,17 +443,14 @@ function Badge({
       <>
         <IconBag />
         <div
-          className={`${
-            dark
-              ? 'text-primary bg-contrast dark:text-contrast dark:bg-primary'
-              : 'text-contrast bg-primary'
-          } absolute bottom-1 right-1 text-[0.625rem] font-medium subpixel-antialiased h-3 min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-auto px-[0.125rem] pb-px`}
+          className={`
+             text-contrast bg-primary absolute bottom-1 right-1 text-[0.625rem] font-medium subpixel-antialiased h-3 min-w-[0.75rem] flex items-center justify-center leading-none text-center rounded-full w-auto px-[0.125rem] pb-px`}
         >
           <span>{count || 0}</span>
         </div>
       </>
     ),
-    [count, dark],
+    [count],
   );
 
   return isHydrated ? (
@@ -491,7 +484,7 @@ function Footer({menu, language}: {menu?: EnhancedMenu; language: string}) {
       as="footer"
       role="contentinfo"
       className={`grid items-start grid-flow-row w-full gap-6 py-8 px-6 md:px-8 lg:px-12 md:gap-8 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-${itemsCount}
-        bg-primary dark:bg-contrast dark:text-primary text-contrast`}
+        bg-primary text-contrast`}
     >
       <FooterMenu menu={menu} />
       <CountrySelector language={language} />
