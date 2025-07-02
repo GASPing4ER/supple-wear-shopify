@@ -52,16 +52,23 @@ export function PageLayout({children, language, layout}: LayoutProps) {
             Skip to content
           </a>
         </div>
-        {/* <div className="bg-[#F5F5DC] p-4 text-black text-center uppercase text-xs sm:text-sm md:text-base">
-          <p>
-            Welcome to the <strong>Supple preorder!</strong> Become a part of
-            the Supple family by joining our <strong>first ever drop.</strong>
+        <div className="bg-[#F5F5DC] p-4 text-black text-center text-xs sm:text-sm md:text-base flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12">
+          <p className="uppercase">
+            <strong>EXCLUSIVE</strong> SUMMER SALE, UP T0{' '}
+            <strong>30% OFF</strong>
           </p>
-          <p>
-            All preorders come with <strong>free shipping</strong> and will be
-            shipped on <strong>January 20th 2025.</strong>
-          </p>
-        </div> */}
+          <div className=" flex gap-4 items-center">
+            <p className="hidden sm:block">Use Codes:</p>
+            <span className="bg-black text-white py-1 px-4 rounded-xl font-semibold lowercase">
+              supple20
+            </span>
+            or
+            <span className="bg-black text-white py-1 px-4 rounded-xl font-semibold lowercase">
+              supple30
+            </span>
+            (3 items or more)
+          </div>
+        </div>
         {headerMenu && layout?.shop.name && (
           <Header title={layout.shop.name} menu={headerMenu} />
         )}
