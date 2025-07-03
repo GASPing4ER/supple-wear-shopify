@@ -89,7 +89,7 @@ export function ProductCard({
                 <Money withoutTrailingZeros data={price!} />
                 {isDiscounted(price as MoneyV2, compareAtPrice as MoneyV2) && (
                   <CompareAtPrice
-                    className={'opacity-50'}
+                    className={'opacity-50 line-through'}
                     data={compareAtPrice as MoneyV2}
                   />
                 )}
@@ -135,7 +135,7 @@ function CompareAtPrice({
   const {currencyNarrowSymbol, withoutTrailingZerosAndCurrency} =
     useMoney(data);
 
-  const styles = clsx('strike', className);
+  const styles = clsx(className);
 
   return (
     <span className={styles}>
