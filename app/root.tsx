@@ -144,6 +144,21 @@ function Layout({children}: {children?: React.ReactNode}) {
           src="https://cdn-cookieyes.com/client_data/3a1f355d532f6fc593dc110b/script.js"
           nonce={nonce}
         ></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-X7LWTGE8SH"
+        ></script>
+        <script
+          nonce={nonce}
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-X7LWTGE8SH');
+      `,
+          }}
+        />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="msvalidate.01" content="A352E6A0AF9A652267361BBB572B8468" />

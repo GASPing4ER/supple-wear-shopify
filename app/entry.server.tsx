@@ -34,6 +34,7 @@ export default async function handleRequest(
       '*.firebasedatabase.app',
       '*.firebaseio.com',
       'wss://*.firebasedatabase.app',
+      'https://region1.google-analytics.com',
       'https://cdn-cookieyes.com', // Allow cookieyes connections
       'https://log.cookieyes.com', // Allow cookieyes logging
       'https://monorail-edge.shopifysvc.com',
