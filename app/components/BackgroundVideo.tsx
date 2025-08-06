@@ -1,6 +1,6 @@
 const BackgroundVideo = () => {
   return (
-    <main className="h-screen relative">
+    <main className="h-[calc(100vh-60px)] relative">
       <video
         src="/videos/hero.mp4"
         className="object-cover w-full h-full block"
