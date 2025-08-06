@@ -32,6 +32,7 @@ import type {RootLoader} from '~/root';
 
 import {AfterFooter} from './AfterFooter';
 import Newsletter from './Newsletter';
+import CountdownBanner from './CountdownBanner';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -52,8 +53,9 @@ export function PageLayout({children, language, layout}: LayoutProps) {
             Skip to content
           </a>
         </div>
-        <div className="fixed top-0 left-0 w-full bg-[#F5F5DC] h-[80px] lg:h-[60px] text-black text-center text-xs sm:text-sm md:text-base flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12 z-10">
-          <p className="uppercase">
+        <div className="fixed uppercase font-medium top-0 left-0 w-full bg-[#F5F5DC] h-[80px] lg:h-[60px] text-black text-center text-xs sm:text-sm md:text-base flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12 z-10">
+          <CountdownBanner />
+          {/* <p className="uppercase">
             <strong>EXCLUSIVE</strong> SUMMER SALE, UP T0{' '}
             <strong>30% OFF</strong>
           </p>
@@ -67,7 +69,7 @@ export function PageLayout({children, language, layout}: LayoutProps) {
               supple30
             </span>
             (3 items or more)
-          </div>
+          </div> */}
         </div>
         {headerMenu && layout?.shop.name && (
           <Header title={layout.shop.name} menu={headerMenu} />
