@@ -10,17 +10,9 @@ import {Text, Heading, Section} from '~/components/Text';
 import {Link} from '~/components/Link';
 import {Cart} from '~/components/Cart';
 import {CartLoading} from '~/components/CartLoading';
-import {Input} from '~/components/Input';
 import {Drawer, useDrawer} from '~/components/Drawer';
 import {CountrySelector} from '~/components/CountrySelector';
-import {
-  IconMenu,
-  IconCaret,
-  IconLogin,
-  IconAccount,
-  IconBag,
-  IconSearch,
-} from '~/components/Icon';
+import {IconMenu, IconCaret, IconBag} from '~/components/Icon';
 import {
   type EnhancedMenu,
   type ChildEnhancedMenuItem,

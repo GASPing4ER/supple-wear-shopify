@@ -31,7 +31,7 @@ const CountdownBanner = () => {
 
   return (
     <div className="fixed uppercase font-medium top-0 left-0 w-full bg-[#F5F5DC] h-[80px] lg:h-[60px] text-black text-center text-xs sm:text-sm md:text-base flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12 z-10">
-      Essentia – August Issue – Launches in {timeLeft}
+      Essentia – August Issue – LIVE NOW
     </div>
   );
 };

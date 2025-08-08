@@ -34,7 +34,7 @@ const Countdown = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <p className="text-4xl sm:text-6xl">{timeLeft}</p>;
+  return <p className="text-4xl sm:text-6xl">LIVE NOW</p>;
 };
 
 export default Countdown;
