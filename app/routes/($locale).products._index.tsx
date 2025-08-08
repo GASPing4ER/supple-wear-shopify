@@ -12,7 +12,7 @@ import {
 } from '@shopify/hydrogen';
 import {useState} from 'react';
 
-import {PageHeader, Section} from '~/components/Text';
+import {Section} from '~/components/Text';
 import {ProductCard} from '~/components/ProductCard';
 import {Grid} from '~/components/Grid';
 import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
@@ -21,7 +21,7 @@ import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
 import CategoryFilter from '~/components/CategoryFilter';
 
-const PAGE_BY = 18;
+const PAGE_BY = 24;
 
 export const headers = routeHeaders;
 
@@ -72,7 +72,7 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
 export default function AllProducts() {
   const {products} = useLoaderData<typeof loader>();
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const categories = ['leggings', 'bodysuit'];
+  const categories = ['leggings', 'bodysuit', 'skirt'];
 
   let sortedProducts = [...products.nodes].sort((a, b) => {
     const colorA = a.variants.nodes[0].selectedOptions[0].value;
@@ -85,6 +85,7 @@ export default function AllProducts() {
     const getProductType = (title: string) => {
       if (title.includes('Bodysuit')) return 'bodysuit';
       if (title.includes('Leggings')) return 'leggings';
+      if (title.includes('Skirt')) return 'skirt';
       return ''; // Default to empty string if no match
     };
 
