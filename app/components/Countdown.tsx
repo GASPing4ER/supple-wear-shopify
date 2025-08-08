@@ -34,7 +34,14 @@ const Countdown = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return <p className="text-4xl sm:text-6xl">LIVE NOW</p>;
+  return (
+    <a
+      href="/collections/essentia-august-line"
+      className="text-4xl sm:text-6xl"
+    >
+      LIVE NOW
+    </a>
+  );
 };
 
 export default Countdown;
