@@ -72,7 +72,7 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
 export default function AllProducts() {
   const {products} = useLoaderData<typeof loader>();
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const categories = ['leggings', 'bodysuit', 'skirt'];
+  const categories = ['leggings', 'bodysuit', 'skirt', 'pants'];
 
   let sortedProducts = [...products.nodes].sort((a, b) => {
     const colorA = a.variants.nodes[0].selectedOptions[0].value;

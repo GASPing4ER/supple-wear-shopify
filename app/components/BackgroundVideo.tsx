@@ -28,7 +28,7 @@ const BackgroundVideo = () => {
         <a href="/collections/supple-drop-ii" className="text-4xl sm:text-6xl">
           LIVE NOW
         </a>
-        <Button className="w-fit text-2xl">PRE-ORDER NOW</Button>
+        <Button className="w-fit text-2xl">ORDER NOW</Button>
       </div>
     </main>
   );
