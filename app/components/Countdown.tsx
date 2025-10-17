@@ -4,7 +4,7 @@ const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState('');
 
   useEffect(() => {
-    const targetDate = new Date('2025-08-08T10:00:00Z'); // 12:00 CEST = 10:00 UTC
+    const targetDate = new Date('2025-10-17T10:00:00Z'); // 12:00 CEST = 10:00 UTC
 
     const updateCountdown = () => {
       const now = new Date();
@@ -20,12 +20,7 @@ const Countdown = () => {
       const minutes = Math.floor((difference / (1000 * 60)) % 60);
       const seconds = Math.floor((difference / 1000) % 60);
 
-      setTimeLeft(
-        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(
-          2,
-          '0',
-        )}:${String(seconds).padStart(2, '0')}`,
-      );
+      setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`);
     };
 
     updateCountdown();
@@ -39,7 +34,7 @@ const Countdown = () => {
       href="/collections/essentia-august-line"
       className="text-4xl sm:text-6xl"
     >
-      LIVE NOW
+      {timeLeft}
     </a>
   );
 };

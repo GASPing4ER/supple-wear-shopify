@@ -4,7 +4,7 @@ const CountdownBanner = () => {
   const [timeLeft, setTimeLeft] = useState('');
 
   useEffect(() => {
-    const targetDate = new Date('2025-08-08T10:00:00Z'); // 12:00 CEST = 10:00 UTC
+    const targetDate = new Date('2025-10-17T10:00:00Z'); // 12:00 CEST = 10:00 UTC
 
     const updateCountdown = () => {
       const now = new Date();
@@ -30,8 +30,8 @@ const CountdownBanner = () => {
   }, []);
 
   return (
-    <div className="fixed uppercase font-medium top-0 left-0 w-full bg-[#F5F5DC] h-[80px] lg:h-[60px] text-black text-center text-xs sm:text-sm md:text-base flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12 z-10">
-      Essentia – August Issue – LIVE NOW
+    <div className="fixed font-medium top-0 left-0 w-full bg-[#F5F5DC] h-[80px] lg:h-[60px] text-black text-center text-xs sm:text-sm md:text-base flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12 z-10">
+      Shipping starts 24.10.2025
     </div>
   );
 };

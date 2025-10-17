@@ -152,9 +152,9 @@ export default function Homepage() {
             : utilities.see_products_button.SL}
         </a>
       </div>
-      <section className="w-full">
-        <div className="flex flex-col xl:flex-row xl:h-[70vh] w-full mb-4">
-          <div className="flex-1 h-full relative">
+      {/* <section className="w-full"> */}
+      {/* <div className="flex flex-col xl:flex-row xl:h-[70vh] w-full mb-4"> */}
+      {/* <div className="flex-1 h-full relative">
             <video
               className="object-cover w-full h-full hidden xl:block"
               autoPlay
@@ -164,8 +164,8 @@ export default function Homepage() {
             >
               <source src="/videos/supple.mp4" type="video/mp4" />
             </video>
-          </div>
-          <div className="flex-1 h-full flex">
+          </div> */}
+      {/* <div className="flex-1 h-full flex">
             <div className="flex flex-col justify-center gap-4 p-8">
               <h2 className="philosopher text-5xl">ESSENTIA COLLECTION</h2>
               <p className="cormorant text-lg">
@@ -236,9 +236,9 @@ export default function Homepage() {
                   : collection_section.button.SL}
               </a>
             </div>
-          </div>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-4 sm:h-[75vh] my-4">
+          </div> */}
+      {/* </div> */}
+      {/* <div className="flex flex-col sm:flex-row gap-4 sm:h-[75vh] my-4">
           <div className="flex-1">
             <a href="https://supplewear.com/products/audrey-bodysuit-burgundy">
               <img
@@ -267,7 +267,7 @@ export default function Homepage() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
       <AboutSection aboutRoute={aboutRoute} />
     </>
   );

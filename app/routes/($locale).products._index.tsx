@@ -21,7 +21,7 @@ import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
 import CategoryFilter from '~/components/CategoryFilter';
 
-const PAGE_BY = 24;
+const PAGE_BY = 30;
 
 export const headers = routeHeaders;
 

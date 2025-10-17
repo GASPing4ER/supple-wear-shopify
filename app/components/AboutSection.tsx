@@ -53,13 +53,15 @@ export function AboutSection({aboutRoute}: AboutSectionProps) {
         </Link>
       </div>
       <div className="flex-1 hidden md:block">
-        <Image
-          src={imageUrl}
-          alt={imageAlt}
-          className="w-full h-full object-cover"
-          width={imgWidth!}
-          height={imgHeight!}
-        />
+        <video
+          className="object-cover w-full h-full hidden xl:block"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/videos/supple.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   );
