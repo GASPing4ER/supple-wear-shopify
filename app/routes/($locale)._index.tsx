@@ -72,6 +72,7 @@ function loadDeferredData({context}: LoaderFunctionArgs) {
       variables: {
         country,
         language,
+        tag: "tag:'Featured'",
       },
     })
     .catch((error) => {
@@ -318,9 +319,9 @@ const HOMEPAGE_SEO_QUERY = `#graphql
 
 // @see: https://shopify.dev/api/storefront/current/queries/products
 export const HOMEPAGE_FEATURED_PRODUCTS_QUERY = `#graphql
-  query homepageFeaturedProducts($country: CountryCode, $language: LanguageCode)
+  query homepageFeaturedProducts($country: CountryCode, $language: LanguageCode, $tag: String)
   @inContext(country: $country, language: $language) {
-    products(first: 8) {
+    products(first: 8, query: $tag) {
       nodes {
         ...ProductCard
       }

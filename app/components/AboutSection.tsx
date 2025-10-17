@@ -54,7 +54,7 @@ export function AboutSection({aboutRoute}: AboutSectionProps) {
       </div>
       <div className="flex-1 hidden md:block">
         <video
-          className="object-cover w-full h-full hidden xl:block"
+          className="object-cover w-full h-full block"
           autoPlay
           loop
           muted

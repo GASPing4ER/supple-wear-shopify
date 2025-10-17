@@ -75,21 +75,25 @@ export default function AllProducts() {
   const categories = ['leggings', 'bodysuit', 'skirt', 'pants'];
 
   let sortedProducts = [...products.nodes].sort((a, b) => {
+    // 1️⃣ First priority: Featured tag
+    const aFeatured = a.tags.includes('Featured') ? 1 : 0;
+    const bFeatured = b.tags.includes('Featured') ? 1 : 0;
+    if (bFeatured - aFeatured !== 0) return bFeatured - aFeatured; // Featured first
+
+    // 2️⃣ Second priority: Color
     const colorA = a.variants.nodes[0].selectedOptions[0].value;
     const colorB = b.variants.nodes[0].selectedOptions[0].value;
     const colorComparison = colorA.localeCompare(colorB);
-    if (colorComparison !== 0) {
-      return colorComparison;
-    }
+    if (colorComparison !== 0) return colorComparison;
 
+    // 3️⃣ Third priority: Product type inferred from title
     const getProductType = (title: string) => {
       if (title.includes('Bodysuit')) return 'bodysuit';
       if (title.includes('Leggings')) return 'leggings';
       if (title.includes('Skirt')) return 'skirt';
-      return ''; // Default to empty string if no match
+      return '';
     };
 
-    // Secondary sort: By product type inferred from the title
     const productTypeA = getProductType(a.title);
     const productTypeB = getProductType(b.title);
     return productTypeA.localeCompare(productTypeB);
@@ -152,6 +156,7 @@ query AllProducts(
   products(first: $first, last: $last, before: $startCursor, after: $endCursor) {
     nodes {
       ...ProductCard
+      tags
     }
     pageInfo {
       hasPreviousPage
@@ -161,5 +166,5 @@ query AllProducts(
     }
   }
 }
-  ${PRODUCT_CARD_FRAGMENT}
+${PRODUCT_CARD_FRAGMENT}
 ` as const;
