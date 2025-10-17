@@ -1,11 +1,10 @@
 import {Button} from './Button';
-import Countdown from './Countdown';
 
 const BackgroundVideo = () => {
   return (
     <main className="h-[calc(100vh-60px)] relative">
       <video
-        src="/videos/drop.mp4"
+        src="/videos/drop2.mp4"
         className="object-cover w-full h-full block"
         autoPlay
         loop
