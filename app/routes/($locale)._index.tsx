@@ -114,6 +114,13 @@ export default function Homepage() {
   return (
     <>
       <BackgroundVideo />
+      <div className="flex justify-center pt-10">
+        <img
+          src="/images/supple-drop2.jpeg"
+          alt="Supple Drop II"
+          className="w-[400px] object-cover h-full"
+        />
+      </div>
       <Section className="text-center uppercase text-lg lg:text-2xl philosopher">
         <h2>Let’s plié, roll up, squat, child pose, and brunch together.</h2>
       </Section>
