@@ -22,13 +22,8 @@ const BackgroundVideo = () => {
 
       {/* Overlay content */}
       <div className="philosopher absolute text-black sm:text-white z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl sm:text-4xl font-bold text-center flex flex-col items-center gap-4 px-4">
-        <h1>
-          SUPPLE DROP II. Ultra-soft. Featherlight. Second skin. Pre-order now.
-        </h1>
-        <a href="/collections/supple-drop-ii" className="text-4xl sm:text-6xl">
-          LIVE NOW
-        </a>
-        <Button className="w-fit text-2xl">ORDER NOW</Button>
+        <h1>SUPPLE DROP II. Ultra-soft. Featherlight. Second skin.</h1>
+        <Button to="/collections/supple-drop-ii">ORDER NOW</Button>
       </div>
     </main>
   );
