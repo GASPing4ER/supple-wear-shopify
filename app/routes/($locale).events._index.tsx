@@ -12,7 +12,7 @@ import {
 } from '@shopify/hydrogen';
 import {useState} from 'react';
 
-import {Section} from '~/components/Text';
+import {PageHeader, Section} from '~/components/Text';
 import {ProductCard} from '~/components/ProductCard';
 import {Grid} from '~/components/Grid';
 import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
@@ -99,7 +99,7 @@ export default function Page() {
   });
   return (
     <>
-      {/* <PageHeader heading="All Products" variant="allCollections" /> */}
+      <PageHeader heading="All Events" variant="allCollections" />
       <Section>
         <Pagination connection={products}>
           {({nodes, isLoading, NextLink, PreviousLink}) => {
