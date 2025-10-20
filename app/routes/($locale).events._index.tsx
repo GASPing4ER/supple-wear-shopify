@@ -4,148 +4,139 @@ import {
   type LoaderFunctionArgs,
 } from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
-import {flattenConnection, getSeoMeta, Image} from '@shopify/hydrogen';
+import invariant from 'tiny-invariant';
+import {
+  Pagination,
+  getPaginationVariables,
+  getSeoMeta,
+} from '@shopify/hydrogen';
+import {useState} from 'react';
 
 import {PageHeader, Section} from '~/components/Text';
-import {Link} from '~/components/Link';
+import {ProductCard} from '~/components/ProductCard';
 import {Grid} from '~/components/Grid';
-import {getImageLoadingPriority, PAGINATION_SIZE} from '~/lib/const';
+import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
+import {getImageLoadingPriority} from '~/lib/const';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
-import type {ArticleFragment} from 'storefrontapi.generated';
+import CategoryFilter from '~/components/CategoryFilter';
 
-const BLOG_HANDLE = 'Journal';
+const PAGE_BY = 30;
 
 export const headers = routeHeaders;
 
-export const loader = async ({
+export async function loader({
   request,
   context: {storefront},
-}: LoaderFunctionArgs) => {
-  const {language, country} = storefront.i18n;
-  const {blog} = await storefront.query(BLOGS_QUERY, {
+}: LoaderFunctionArgs) {
+  const variables = getPaginationVariables(request, {pageBy: PAGE_BY});
+
+  const data = await storefront.query(ALL_PRODUCTS_QUERY, {
     variables: {
-      blogHandle: BLOG_HANDLE,
-      pageBy: PAGINATION_SIZE,
-      language,
+      ...variables,
+      country: storefront.i18n.country,
+      language: storefront.i18n.language,
+      query: 'tag:events',
     },
   });
 
-  if (!blog?.articles) {
-    throw new Response('Not found', {status: 404});
-  }
+  invariant(data, 'No data returned from Shopify API');
 
-  const articles = flattenConnection(blog.articles).map((article) => {
-    const {publishedAt} = article!;
-    return {
-      ...article,
-      publishedAt: new Intl.DateTimeFormat(`${language}-${country}`, {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }).format(new Date(publishedAt!)),
-    };
+  const seo = seoPayload.collection({
+    url: request.url,
+    collection: {
+      id: 'all-products',
+      title: 'All Events',
+      handle: 'events',
+      descriptionHtml: 'All the events',
+      description: 'All the events',
+      seo: {
+        title: 'All Events',
+        description: 'All the events',
+      },
+      metafields: [],
+      products: data.products,
+      updatedAt: '',
+    },
   });
 
-  const seo = seoPayload.blog({blog, url: request.url});
-
-  return json({articles, seo});
-};
+  return json({
+    products: data.products,
+    seo,
+  });
+}
 
 export const meta = ({matches}: MetaArgs<typeof loader>) => {
   return getSeoMeta(...matches.map((match) => (match.data as any).seo));
 };
 
-export default function Journals() {
-  const {articles} = useLoaderData<typeof loader>();
+export default function AllProducts() {
+  const {products} = useLoaderData<typeof loader>();
 
   return (
     <>
+      <PageHeader heading="All Events" variant="allCollections" />
       <Section>
-        <Grid as="ol" layout="blog">
-          {articles.map((article, i) => (
-            <ArticleCard
-              blogHandle={BLOG_HANDLE.toLowerCase()}
-              article={article}
-              key={article.id}
-              loading={getImageLoadingPriority(i, 2)}
-            />
-          ))}
-        </Grid>
+        <Pagination connection={products}>
+          {({nodes, isLoading, NextLink, PreviousLink}) => {
+            const itemsMarkup = products.map((product, i) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                loading={getImageLoadingPriority(i)}
+              />
+            ));
+
+            return (
+              <>
+                <div className="flex items-center justify-center mt-6">
+                  <PreviousLink className="inline-block rounded font-medium text-center py-3 px-6 border border-primary/10 bg-contrast text-primary w-full">
+                    {isLoading ? 'Loading...' : 'Previous'}
+                  </PreviousLink>
+                </div>
+                <Grid data-test="product-grid">{itemsMarkup}</Grid>
+                <div className="flex items-center justify-center mt-6">
+                  <NextLink className="inline-block rounded font-medium text-center py-3 px-6 border border-primary/10 bg-contrast text-primary w-full">
+                    {isLoading ? 'Loading...' : 'Next'}
+                  </NextLink>
+                </div>
+              </>
+            );
+          }}
+        </Pagination>
       </Section>
     </>
   );
 }
 
-function ArticleCard({
-  blogHandle,
-  article,
-  loading,
-}: {
-  blogHandle: string;
-  article: ArticleFragment;
-  loading?: HTMLImageElement['loading'];
-}) {
-  return (
-    <li key={article.id}>
-      <Link to={`/${blogHandle}/${article.handle}`}>
-        {article.image && (
-          <div className="card-image aspect-[3/2]">
-            <Image
-              alt={article.image.altText || article.title}
-              className="object-cover w-full"
-              data={article.image}
-              aspectRatio="3/2"
-              loading={loading}
-              sizes="(min-width: 768px) 50vw, 100vw"
-            />
-          </div>
-        )}
-        <h2 className="mt-4 font-medium">{article.title}</h2>
-        <span className="block mt-1">{article.publishedAt}</span>
-      </Link>
-    </li>
-  );
-}
-
-const BLOGS_QUERY = `#graphql
-query Blog(
+const ALL_PRODUCTS_QUERY = `#graphql
+#graphql
+query AllProducts(
+  $country: CountryCode
   $language: LanguageCode
-  $blogHandle: String!
-  $pageBy: Int!
-  $cursor: String
-) @inContext(language: $language) {
-  blog(handle: $blogHandle) {
-    title
-    seo {
-      title
-      description
+  $first: Int
+  $last: Int
+  $startCursor: String
+  $endCursor: String
+) @inContext(country: $country, language: $language) {
+  products(
+    first: $first
+    last: $last
+    before: $startCursor
+    after: $endCursor
+    query: "tag:events"
+  ) {
+    nodes {
+      ...ProductCard
+      tags
     }
-    articles(first: $pageBy, after: $cursor) {
-      edges {
-        node {
-          ...Article
-        }
-      }
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
     }
   }
 }
-
-fragment Article on Article {
-  author: authorV2 {
-    name
-  }
-  contentHtml
-  handle
-  id
-  image {
-    id
-    altText
-    url
-    width
-    height
-  }
-  publishedAt
-  title
-}
-`;
+${PRODUCT_CARD_FRAGMENT}
+` as const;
