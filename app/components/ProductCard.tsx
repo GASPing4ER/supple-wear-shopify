@@ -72,7 +72,7 @@ export function ProductCard({
               {cardLabel}
             </Text> */}
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-4">
             <div>
               <Text
                 className="w-full overflow-hidden whitespace-nowrap text-ellipsis philosopher"
@@ -80,9 +80,12 @@ export function ProductCard({
               >
                 {product.title}
               </Text>
-              <h4 className="text-sm">
-                {product.variants.nodes[0].selectedOptions[0].value}
-              </h4>
+              {product.variants.nodes[0].selectedOptions[0].value !==
+                'Default Title' && (
+                <h4 className="text-sm">
+                  {product.variants.nodes[0].selectedOptions[0].value}
+                </h4>
+              )}
             </div>
             <div className="flex gap-4">
               <Text className="flex gap-4">

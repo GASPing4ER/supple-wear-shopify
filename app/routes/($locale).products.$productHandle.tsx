@@ -177,7 +177,9 @@ export default function Product() {
                 <Heading as="h1" className="whitespace-normal philosopher">
                   {title}
                 </Heading>
-                <h2>{product.options[0].values[0]}</h2>
+                {!product.tags.includes('events') && (
+                  <h2>{product.options[0].values[0]}</h2>
+                )}
                 {/* {vendor && (
                   <Text className={'opacity-50 font-medium'}>{vendor}</Text>
                 )} */}
@@ -194,72 +196,79 @@ export default function Product() {
                   )}
                 </Await>
               </Suspense>
-              <div className="grid gap-4 py-4">
-                {descriptionHtml && (
+              {!product.tags.includes('events') ? (
+                <div className="grid gap-4 py-4">
+                  {descriptionHtml && (
+                    <ProductDetail
+                      title={
+                        language === 'EN'
+                          ? 'Product Details'
+                          : language === 'ES'
+                          ? 'Detalles del producto'
+                          : 'Podrobnosti o izdelku'
+                      }
+                      content={descriptionHtml}
+                    />
+                  )}
+                  <ProductDetail
+                    title="Fit"
+                    content={
+                      language === 'EN'
+                        ? 'True to size'
+                        : language === 'ES'
+                        ? 'Fiel a la talla'
+                        : 'Ustreza velikosti'
+                    }
+                  />
                   <ProductDetail
                     title={
                       language === 'EN'
-                        ? 'Product Details'
+                        ? 'Designed for'
                         : language === 'ES'
-                        ? 'Detalles del producto'
-                        : 'Podrobnosti o izdelku'
+                        ? 'Diseñado para'
+                        : 'Oblikovano za'
                     }
-                    content={descriptionHtml}
+                    content={
+                      language === 'EN'
+                        ? 'Pilates, Yoga, Gym, Lounging & on the go'
+                        : language === 'ES'
+                        ? 'Pilates, Yoga, Gimnasio, Tumbona y en movimiento'
+                        : 'Pilates, joga, telovadnica, poležavanje in na poti'
+                    }
                   />
-                )}
-                <ProductDetail
-                  title="Fit"
-                  content={
-                    language === 'EN'
-                      ? 'True to size'
-                      : language === 'ES'
-                      ? 'Fiel a la talla'
-                      : 'Ustreza velikosti'
-                  }
+                  <ProductDetail
+                    title={
+                      language === 'EN'
+                        ? 'Care'
+                        : language === 'ES'
+                        ? 'Atención'
+                        : 'Oskrba'
+                    }
+                    content={
+                      language === 'EN'
+                        ? 'Machine wash at 30°C. Do not iron. Do not dry clean. Do not bleach. Do not tumble dry'
+                        : language === 'ES'
+                        ? 'Lavar a máquina a 30°C. No planchar. No limpiar en seco. No usar lejía. No secar en secadora.'
+                        : 'Pranje v pralnem stroju pri 30 °C. Ne likajte. Ne čistite na suhem. Ne belite. Ne sušite v sušilnem stroju'
+                    }
+                  />
+                  <ProductProperties
+                    title={
+                      language === 'EN'
+                        ? 'Properties'
+                        : language === 'ES'
+                        ? 'Propiedades'
+                        : 'Lastnosti'
+                    }
+                    language={language}
+                  />
+                </div>
+              ) : (
+                <div
+                  className="t"
+                  dangerouslySetInnerHTML={{__html: descriptionHtml}}
                 />
-                <ProductDetail
-                  title={
-                    language === 'EN'
-                      ? 'Designed for'
-                      : language === 'ES'
-                      ? 'Diseñado para'
-                      : 'Oblikovano za'
-                  }
-                  content={
-                    language === 'EN'
-                      ? 'Pilates, Yoga, Gym, Lounging & on the go'
-                      : language === 'ES'
-                      ? 'Pilates, Yoga, Gimnasio, Tumbona y en movimiento'
-                      : 'Pilates, joga, telovadnica, poležavanje in na poti'
-                  }
-                />
-                <ProductDetail
-                  title={
-                    language === 'EN'
-                      ? 'Care'
-                      : language === 'ES'
-                      ? 'Atención'
-                      : 'Oskrba'
-                  }
-                  content={
-                    language === 'EN'
-                      ? 'Machine wash at 30°C. Do not iron. Do not dry clean. Do not bleach. Do not tumble dry'
-                      : language === 'ES'
-                      ? 'Lavar a máquina a 30°C. No planchar. No limpiar en seco. No usar lejía. No secar en secadora.'
-                      : 'Pranje v pralnem stroju pri 30 °C. Ne likajte. Ne čistite na suhem. Ne belite. Ne sušite v sušilnem stroju'
-                  }
-                />
-                <ProductProperties
-                  title={
-                    language === 'EN'
-                      ? 'Properties'
-                      : language === 'ES'
-                      ? 'Propiedades'
-                      : 'Lastnosti'
-                  }
-                  language={language}
-                />
-              </div>
+              )}
             </section>
           </div>
         </div>
@@ -713,6 +722,7 @@ const PRODUCT_QUERY = `#graphql
       handle
       descriptionHtml
       description
+      tags
       options {
         name
         values

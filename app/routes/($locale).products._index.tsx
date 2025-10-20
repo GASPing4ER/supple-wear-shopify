@@ -59,8 +59,15 @@ export async function loader({
     },
   });
 
+  const filteredProducts = {
+    ...data.products,
+    nodes: data.products.nodes.filter(
+      (product) => !product.tags.includes('events'),
+    ),
+  };
+
   return json({
-    products: data.products,
+    products: filteredProducts,
     seo,
   });
 }
