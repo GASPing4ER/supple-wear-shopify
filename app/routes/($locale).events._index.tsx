@@ -12,14 +12,13 @@ import {
 } from '@shopify/hydrogen';
 import {useState} from 'react';
 
-import {PageHeader, Section} from '~/components/Text';
+import {Section} from '~/components/Text';
 import {ProductCard} from '~/components/ProductCard';
 import {Grid} from '~/components/Grid';
 import {PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {getImageLoadingPriority} from '~/lib/const';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders} from '~/data/cache';
-import CategoryFilter from '~/components/CategoryFilter';
 
 const PAGE_BY = 30;
 
@@ -70,16 +69,41 @@ export const meta = ({matches}: MetaArgs<typeof loader>) => {
   return getSeoMeta(...matches.map((match) => (match.data as any).seo));
 };
 
-export default function AllProducts() {
+export default function Page() {
   const {products} = useLoaderData<typeof loader>();
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
+  const sortedProducts = [...products.nodes].sort((a, b) => {
+    // 1️⃣ First priority: Featured tag
+    const aFeatured = a.tags.includes('Featured') ? 1 : 0;
+    const bFeatured = b.tags.includes('Featured') ? 1 : 0;
+    if (bFeatured - aFeatured !== 0) return bFeatured - aFeatured; // Featured first
+
+    // 2️⃣ Second priority: Color
+    const colorA = a.variants.nodes[0].selectedOptions[0].value;
+    const colorB = b.variants.nodes[0].selectedOptions[0].value;
+    const colorComparison = colorA.localeCompare(colorB);
+    if (colorComparison !== 0) return colorComparison;
+
+    // 3️⃣ Third priority: Product type inferred from title
+    const getProductType = (title: string) => {
+      if (title.includes('Bodysuit')) return 'bodysuit';
+      if (title.includes('Leggings')) return 'leggings';
+      if (title.includes('Skirt')) return 'skirt';
+      return '';
+    };
+
+    const productTypeA = getProductType(a.title);
+    const productTypeB = getProductType(b.title);
+    return productTypeA.localeCompare(productTypeB);
+  });
   return (
     <>
-      <PageHeader heading="All Events" variant="allCollections" />
+      {/* <PageHeader heading="All Products" variant="allCollections" /> */}
       <Section>
         <Pagination connection={products}>
           {({nodes, isLoading, NextLink, PreviousLink}) => {
-            const itemsMarkup = products.map((product, i) => (
+            const itemsMarkup = sortedProducts.map((product, i) => (
               <ProductCard
                 key={product.id}
                 product={product}
