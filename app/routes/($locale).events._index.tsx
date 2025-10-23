@@ -99,38 +99,35 @@ export default function Page() {
   });
   return (
     <>
-      <main className="sm:p-10 flex flex-col">
-        <h1 className="philosopher text-4xl text-center -mb-10">All Events</h1>
-        <Section>
-          <Pagination connection={products}>
-            {({nodes, isLoading, NextLink, PreviousLink}) => {
-              const itemsMarkup = sortedProducts.map((product, i) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  loading={getImageLoadingPriority(i)}
-                />
-              ));
+      <Section>
+        <Pagination connection={products}>
+          {({nodes, isLoading, NextLink, PreviousLink}) => {
+            const itemsMarkup = sortedProducts.map((product, i) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                loading={getImageLoadingPriority(i)}
+              />
+            ));
 
-              return (
-                <>
-                  <div className="flex items-center justify-center mt-6">
-                    <PreviousLink className="inline-block rounded font-medium text-center py-3 px-6 border border-primary/10 bg-contrast text-primary w-full">
-                      {isLoading ? 'Loading...' : 'Previous'}
-                    </PreviousLink>
-                  </div>
-                  <div className="flex flex-wrap gap-10">{itemsMarkup}</div>
-                  <div className="flex items-center justify-center mt-6">
-                    <NextLink className="inline-block rounded font-medium text-center py-3 px-6 border border-primary/10 bg-contrast text-primary w-full">
-                      {isLoading ? 'Loading...' : 'Next'}
-                    </NextLink>
-                  </div>
-                </>
-              );
-            }}
-          </Pagination>
-        </Section>
-      </main>
+            return (
+              <>
+                <div className="flex items-center justify-center mt-6">
+                  <PreviousLink className="inline-block rounded font-medium text-center py-3 px-6 border border-primary/10 bg-contrast text-primary w-full">
+                    {isLoading ? 'Loading...' : 'Previous'}
+                  </PreviousLink>
+                </div>
+                <Grid data-test="product-grid-2">{itemsMarkup}</Grid>
+                <div className="flex items-center justify-center mt-6">
+                  <NextLink className="inline-block rounded font-medium text-center py-3 px-6 border border-primary/10 bg-contrast text-primary w-full">
+                    {isLoading ? 'Loading...' : 'Next'}
+                  </NextLink>
+                </div>
+              </>
+            );
+          }}
+        </Pagination>
+      </Section>
     </>
   );
 }

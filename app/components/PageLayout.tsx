@@ -24,7 +24,6 @@ import type {RootLoader} from '~/root';
 
 import {AfterFooter} from './AfterFooter';
 import Newsletter from './Newsletter';
-import CountdownBanner from './CountdownBanner';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -45,28 +44,10 @@ export function PageLayout({children, language, layout}: LayoutProps) {
             Skip to content
           </a>
         </div>
-        <div className="fixed uppercase font-medium top-0 left-0 w-full bg-[#F5F5DC] h-[80px] lg:h-[60px] text-black text-center text-xs sm:text-sm md:text-base flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12 z-10">
-          <CountdownBanner />
-          {/* <p className="uppercase">
-            <strong>EXCLUSIVE</strong> SUMMER SALE, UP T0{' '}
-            <strong>30% OFF</strong>
-          </p>
-          <div className="flex gap-4 items-center">
-            <p className="hidden sm:block">Use Codes:</p>
-            <span className="bg-black text-white py-1 px-4 rounded-xl font-semibold lowercase">
-              supple20
-            </span>
-            or
-            <span className="bg-black text-white py-1 px-4 rounded-xl font-semibold lowercase">
-              supple30
-            </span>
-            (3 items or more)
-          </div> */}
-        </div>
         {headerMenu && layout?.shop.name && (
           <Header title={layout.shop.name} menu={headerMenu} />
         )}
-        <main role="main" id="mainContent" className="flex-grow mt-[60px]">
+        <main role="main" id="mainContent" className="flex-grow">
           {children}
         </main>
       </div>
@@ -211,7 +192,7 @@ function MobileHeader({
       role="banner"
       className={`${
         isHome ? 'bg-primary/80 text-contrast' : 'bg-contrast/80 text-primary'
-      } flex lg:hidden items-center h-nav sticky backdrop-blur-lg z-40 top-[80px] justify-between w-full leading-none gap-4 px-4 md:px-8`}
+      } flex lg:hidden items-center h-nav sticky backdrop-blur-lg z-40 justify-between w-full leading-none gap-4 px-4 md:px-8`}
     >
       <div className="flex items-center justify-start w-full gap-4">
         <button
@@ -298,7 +279,7 @@ function DesktopHeader({
         isHome ? 'bg-primary/80 text-contrast' : 'bg-contrast/80 text-primary'
       } ${
         !isHome && y > 50 && ' shadow-lightHeader'
-      } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-[60px] justify-between w-full leading-none gap-8 px-12 py-8`}
+      } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 justify-between w-full leading-none gap-8 px-12 py-8`}
     >
       <div className="flex gap-12">
         <nav className="flex gap-8">
