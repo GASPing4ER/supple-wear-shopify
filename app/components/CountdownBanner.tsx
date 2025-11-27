@@ -1,7 +1,22 @@
 import {useEffect, useState} from 'react';
+import {useRouteLoaderData} from '@remix-run/react';
+
+import type {RootLoader} from '~/root';
+import {DEFAULT_LOCALE} from '~/lib/utils';
 
 const CountdownBanner = () => {
   const [timeLeft, setTimeLeft] = useState('');
+  const rootData = useRouteLoaderData<RootLoader>('root');
+  const language =
+    rootData?.selectedLocale?.language ?? DEFAULT_LOCALE.language;
+
+  const bannerMessages: Record<string, string> = {
+    EN: 'Discount code BF30 for old collections and BF15 for new collections.',
+    ES: 'Codigo de descuento BF30 para colecciones antiguas y BF15 para colecciones nuevas.',
+    SL: 'Koda za popust BF30 za stare kolekcije in BF15 za nove kolekcije.',
+  };
+
+  const message = bannerMessages[language] ?? bannerMessages.EN;
 
   useEffect(() => {
     const targetDate = new Date('2025-10-17T10:00:00Z'); // 12:00 CEST = 10:00 UTC
@@ -30,8 +45,8 @@ const CountdownBanner = () => {
   }, []);
 
   return (
-    <div className="fixed font-medium top-0 left-0 w-full bg-[#F5F5DC] h-[80px] lg:h-[60px] text-black text-center text-xs sm:text-sm md:text-base flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12 z-10">
-      Shipping starts 24.10.2025
+    <div className="sticky top-0 left-0 z-50 w-full h-[60px] font-medium bg-[#F5F5DC] text-black text-center text-xs sm:text-sm md:text-base flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-12 uppercase">
+      {message}
     </div>
   );
 };
