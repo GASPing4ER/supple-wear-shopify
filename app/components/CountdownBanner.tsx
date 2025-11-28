@@ -11,9 +11,9 @@ const CountdownBanner = () => {
     rootData?.selectedLocale?.language ?? DEFAULT_LOCALE.language;
 
   const bannerMessages: Record<string, string> = {
-    EN: 'Discount code BF30 for old collections and BF15 for new collections.',
-    ES: 'Codigo de descuento BF30 para colecciones antiguas y BF15 para colecciones nuevas.',
-    SL: 'Koda za popust BF30 za stare kolekcije in BF15 za nove kolekcije.',
+    EN: 'Discount code BF30 for old collection and BF15 for new collection.',
+    ES: 'Codigo de descuento BF30 para coleccion antiguas y BF15 para coleccion nuevas.',
+    SL: 'Koda za popust BF30 za staro kolekcijo in BF15 za novo kolekcijo.',
   };
 
   const message = bannerMessages[language] ?? bannerMessages.EN;
