@@ -90,7 +90,7 @@ function Header({title, menu}: {title: string; menu?: EnhancedMenu}) {
       {menu && (
         <MenuDrawer isOpen={isMenuOpen} onClose={closeMenu} menu={menu} />
       )}
-      <CountdownBanner />
+      {/* <CountdownBanner /> */}
       <DesktopHeader
         isHome={isHome}
         title={title}
@@ -194,7 +194,7 @@ function MobileHeader({
       role="banner"
       className={`${
         isHome ? 'bg-primary/80 text-contrast' : 'bg-contrast/80 text-primary'
-      } flex lg:hidden items-center h-nav sticky top-[60px] backdrop-blur-lg z-40 justify-between w-full leading-none gap-4 px-4 md:px-8`}
+      } flex lg:hidden items-center h-nav sticky top-0 backdrop-blur-lg z-40 justify-between w-full leading-none gap-4 px-4 md:px-8`}
     >
       <div className="flex items-center justify-start w-full gap-4">
         <button
@@ -281,7 +281,7 @@ function DesktopHeader({
         isHome ? 'bg-primary/80 text-contrast' : 'bg-contrast/80 text-primary'
       } ${
         !isHome && y > 50 && ' shadow-lightHeader'
-      } hidden h-nav lg:flex items-center sticky top-[60px] transition duration-300 backdrop-blur-lg z-40 justify-between w-full leading-none gap-8 px-12 py-8`}
+      } hidden h-nav lg:flex items-center sticky top-0 transition duration-300 backdrop-blur-lg z-40 justify-between w-full leading-none gap-8 px-12 py-8`}
     >
       <div className="flex gap-12">
         <nav className="flex gap-8">
